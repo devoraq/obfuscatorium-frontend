@@ -1,0 +1,55 @@
+{
+	"common": {
+		"appName": "Obfuscatorium",
+		"navigation": "Navigation"
+	},
+	"sidebar": {
+		"more-actions": "More Actions",
+		"navigation": "Navigation",
+		"menu-items": {
+			"dashboard": { "title": "Dashboard" },
+			"hackathon": {
+				"title": "Hackathon",
+				"create-new": { "title": "Create New Hackathon" },
+				"my": { "title": "My Hackathons" }
+			},
+			"security": {
+				"title": "Security",
+				"verification": {
+					"title": "Verification"
+				}
+			}
+		}
+	},
+	"header": {
+		"dashboard": "Dashboard",
+		"action-menu-items": {
+			"hackathon": {
+				"hackathon": {
+					"add": "Create New Hackathon",
+					"hide": "Hide Completed"
+				}
+			}
+		}
+	},
+	"pages": {
+		"dashboard": {
+			"title": "Dashboard"
+		},
+		"hackathon": {
+			"title": "Hackathon",
+			"create-new": {
+				"title": "Create New Hackathon"
+			},
+			"my": {
+				"title": "My Hackathons"
+			}
+		},
+		"security": {
+			"title": "Security",
+			"verification": {
+				"title": "Verification"
+			}
+		}
+	}
+}

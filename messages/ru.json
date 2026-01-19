@@ -1,0 +1,55 @@
+{
+	"common": {
+		"appName": "Obfuscatorium",
+		"navigation": "Навигация"
+	},
+	"sidebar": {
+		"more-actions": "Больше действий",
+		"navigation": "Навигация",
+		"menu-items": {
+			"dashboard": { "title": "Панель управления" },
+			"hackathon": {
+				"title": "Хакатон",
+				"create-new": { "title": "Создать новый хакатон" },
+				"my": { "title": "Мои хакатоны" }
+			},
+			"security": {
+				"title": "Безопасность",
+				"verification": {
+					"title": "Верификация"
+				}
+			}
+		}
+	},
+	"header": {
+		"dashboard": "Панель управления",
+		"action-menu-items": {
+			"hackathon": {
+				"hackathon": {
+					"add": "Создать новый хакатон",
+					"hide": "Скрыть завершенные"
+				}
+			}
+		}
+	},
+	"pages": {
+		"dashboard": {
+			"title": "Панель управления"
+		},
+		"hackathon": {
+			"title": "Хакатон",
+			"create-new": {
+				"title": "Создать новый хакатон"
+			},
+			"my": {
+				"title": "Мои хакатоны"
+			}
+		},
+		"security": {
+			"title": "Безопасность",
+			"verification": {
+				"title": "Верификация"
+			}
+		}
+	}
+}
