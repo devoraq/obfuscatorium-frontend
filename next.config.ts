@@ -1,19 +1,7 @@
-/**
- * @file next.config.ts
- * @module next
- * @description next config file
- */
-
-/**
- * ! lib imports
- */
-import type { NextConfig } from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	/* config options here */
-	reactCompiler: true,
+  /* config options here */
 };
 
-const withNextIntl = createNextIntlPlugin();
-export default withNextIntl(nextConfig);
+export default nextConfig;
