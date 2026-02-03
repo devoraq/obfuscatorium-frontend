@@ -6,7 +6,7 @@ interface LogoProps {
   className?: string;
 }
 
-export const Logo = ({ className = '' }: LogoProps) => (
+export const Logo = ({ className }: LogoProps): React.ReactElement => (
   <Link 
     href="/" 
     className={`flex items-center gap-2 ${className}`}

@@ -6,11 +6,11 @@
 //   // auth: authReducer,
 // });
 // @/store/rootReducer.ts
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineReducers } from "@reduxjs/toolkit";
 
 // Создайте временный reducer
 const appReducer = (state = { initialized: true, loading: false }) => state;
 
 export const rootReducer = combineReducers({
-  app: appReducer, 
+  app: appReducer,
 });

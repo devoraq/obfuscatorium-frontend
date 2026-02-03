@@ -1,5 +1,5 @@
 import { Button } from "@/ui/components/button";
-const CTASection = () => {
+const CTASection = (): React.ReactElement => {
   return (
     <section className="container mx-auto px-6 py-20 text-center">
       <div className="bg-gray-800/50 backdrop-blur-sm rounded-3xl p-12 border border-sky-600/30">
@@ -10,7 +10,7 @@ const CTASection = () => {
           Присоединяйтесь к сообществу разработчиков и создавайте будущее вместе
           с нами
         </p>
-        <Button to="/auth" variant="primary" size="large">
+        <Button to="/" variant="primary" size="large">
           Зарегистрироваться бесплатно
         </Button>
       </div>

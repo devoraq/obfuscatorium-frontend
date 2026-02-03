@@ -1,9 +1,10 @@
-'use client'
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
 
+import Link from "next/link";
+import Image from "next/image";
+import React from "react";
 
-const Footer = () => {
+const Footer = (): React.ReactElement => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -27,7 +28,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:flex-row items-center gap-4 text-sm order-2">
           <Link
-            href="/privacy"
+            href="/"
             className="text-gray-400 hover:text-blue-400 transition-colors"
           >
             Политика конфиденциальности
@@ -35,7 +36,7 @@ const Footer = () => {
           <div className="w-16 h-px bg-gray-600 md:hidden" />
           <span className="text-gray-500 hidden md:inline">|</span>
           <Link
-            href="/terms"
+            href="/"
             className="text-gray-400 hover:text-blue-400 transition-colors"
           >
             Пользовательское соглашение
