@@ -1,6 +1,6 @@
-import { Button } from "@/ui/components/button";
+import Link from "next/link";
 
-const HeroSection = (): React.ReactElement => {
+const HeroSection: React.FC = () => {
   return (
     <section className="container mx-auto px-6 py-20 text-center">
       <h1 className="text-4xl md:text-7xl font-bold mb-6 text-white">
@@ -11,12 +11,22 @@ const HeroSection = (): React.ReactElement => {
         Объединяйтесь с единомышленниками и превращайте идеи в реальность.
       </p>
       <div className="flex gap-4 justify-center flex-wrap">
-        <Button to="/" variant="primary" size="large">
+        <Link
+          href="/"
+          className="bg-sky-700 hover:bg-sky-600 shadow-2xl shadow-sky-700/50 text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
+          aria-label="Перейти на страницу регистрации"
+          role="button"
+        >
           Начать сейчас
-        </Button>
-        <Button to="/" variant="secondary" size="large">
+        </Link>
+        <Link
+          href="/"
+          className="border-2 border-sky-600 hover:bg-sky-600/10 text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
+           aria-label="Узнать больше о площадке Obfuscatorium"
+          role="button"
+        >
           Узнать больше
-        </Button>
+        </Link>
       </div>
     </section>
   );

@@ -1,15 +1,16 @@
-'use client';
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
+import Link from "next/link";
+import Image from "next/image";
 
 interface LogoProps {
   className?: string;
 }
 
-export const Logo = ({ className }: LogoProps): React.ReactElement => (
-  <Link 
-    href="/" 
+export const Logo: React.FC<LogoProps> = ({ className }) => (
+  <Link
+    href="/"
     className={`flex items-center gap-2 ${className}`}
+    aria-label="Перейти на главную страницу сайта"
   >
     <div className="relative h-16 w-24">
       <Image
@@ -19,6 +20,7 @@ export const Logo = ({ className }: LogoProps): React.ReactElement => (
         fill
         sizes="96px"
         loading="lazy"
+        title="Obfuscatorium" // если есть alt, этот тег нужно убрать, это получается дублирование?
       />
     </div>
     <span className="text-xl md:text-2xl font-bold bg-linear-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">

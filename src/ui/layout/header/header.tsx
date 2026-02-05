@@ -1,11 +1,11 @@
 "use client";
-
 import { useState } from "react";
-import { Logo } from "../../components/logo";
-import { Button } from "../../components/button";
+import Link from "next/link";
+import { Logo } from "@/ui/components/logo";
 import { Menu, X } from "lucide-react";
+import MobileMenu from "@/features/mobile-menu/mobileMenu";
 
-const Header = (): React.ReactElement => {
+const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const toggleMobileMenu = (): void => {
@@ -14,42 +14,49 @@ const Header = (): React.ReactElement => {
 
   return (
     <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur supports-backdrop-filter:bg-gray-900/60">
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <nav
+        className="container mx-auto px-6 py-4 flex justify-between items-center"
+        aria-label="Основная навигация"
+      >
         <Logo />
 
         {/* Desktop menu */}
         <div className="hidden md:flex gap-6 items-center">
-          <Button to="/" variant="ghost" size="small">
+          <Link
+            href="/"
+            className="text-gray-300 hover:text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
+            aria-label="Перейти на страницу авторизации"
+          >
             Войти
-          </Button>
-          <Button to="/" variant="primary" size="small">
+          </Link>
+          <Link
+            href="/"
+            className="bg-sky-700 hover:bg-sky-600 shadow-2xl shadow-sky-700/50 text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
+            aria-label="Перейти на страницу регистрации"
+          >
             Регистрация
-          </Button>
+          </Link>
         </div>
 
         {/* Mobile menu button */}
         <button
           className="md:hidden p-2 text-gray-300 hover:text-white"
           onClick={toggleMobileMenu}
-          aria-label="Меню"
+          aria-label="Открыть меню"
+          aria-controls="mobile-menu"
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
       {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-800 border-t border-gray-700">
-          <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
-            <Button to="/" variant="ghost" size="small">
-              Войти
-            </Button>
-            <Button to="/" variant="primary" size="small">
-              Регистрация
-            </Button>
-          </div>
-        </div>
-      )}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => {
+          return setIsMobileMenuOpen(false);
+        }}
+      />
     </header>
   );
 };
