@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur supports-backdrop-filter:bg-gray-900/60">
+    <header className="sticky top-0 z-50 bg-gray-950/95 backdrop-blur supports-backdrop-filter:bg-gray-950/60">
       <nav
         className="container mx-auto px-6 py-4 flex justify-between items-center"
         aria-label="Основная навигация"
@@ -23,14 +23,14 @@ const Header: React.FC = () => {
         {/* Desktop menu */}
         <div className="hidden md:flex gap-6 items-center">
           <Link
-            href="/"
+            href="/login"
             className="text-gray-300 hover:text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
             aria-label="Перейти на страницу авторизации"
           >
             Войти
           </Link>
           <Link
-            href="/"
+            href="/register"
             className="bg-sky-700 hover:bg-sky-600 shadow-2xl shadow-sky-700/50 text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
             aria-label="Перейти на страницу регистрации"
           >

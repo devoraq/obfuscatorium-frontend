@@ -29,7 +29,8 @@ const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section
+    <section 
+    id="about-platform"
       className="container mx-auto px-6 py-20"
       aria-label="Ключевые особенности платформы"
     >

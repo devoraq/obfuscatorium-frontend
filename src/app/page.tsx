@@ -7,7 +7,7 @@ import CTASection from "@/ui/layout/landing-page/CTA";
 
 const LandingPage = () => {
   return (
-    <div className="bg-gray-900 min-h-screen">
+    <div className="bg-gray-950 min-h-screen">
       <div className="min-h-screen text-white">
         <Header />
         <HeroSection />

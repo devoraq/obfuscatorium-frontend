@@ -19,7 +19,7 @@ const CTASection: React.FC = () => {
           с нами
         </p>
         <Link
-          href="/"
+          href="/register"
           className="bg-sky-700 hover:bg-sky-600 shadow-2xl shadow-sky-700/50 text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
           aria-label="Зарегистрироваться на площадке для хакатонов бесплатно"
         >
