@@ -6,13 +6,13 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
- const Input = ({
+ const Input: React.FC <InputProps> = ({
   label,
   error,
   disabled,
   onChange,
   ...props
-}: InputProps) => {
+}) => {
   const id = useId();
   const errorId = `${id}-error`; 
 
@@ -35,8 +35,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
           className={`
             text-sm font-semibold transition-colors duration-200
             ${disabled ? "text-slate-500" : "text-slate-300"}
-            ${hasError && !disabled ? "text-rose-400" : ""}
-          `}
+            ${hasError && !disabled ? "text-rose-400" : ""}`}
         >
           {label}
         </label>

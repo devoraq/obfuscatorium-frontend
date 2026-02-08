@@ -7,6 +7,12 @@ import Divider from "@/ui/layout/auth/divider";
 import SocialAuth from "@/ui/layout/auth/socialAuth";
 import BackToHome from "@/ui/layout/auth/backToHome";
 
+/**
+ * @file input.tsx
+ * @module  ui/layout/auth
+ * @description Reusable, accessible input field component with validation support
+ */
+
 const RegisterPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +42,7 @@ const RegisterPage: React.FC = () => {
 
         <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-sky-600/30 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
+
             <Input
               label="Имя пользователя"
               type="text"
