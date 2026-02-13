@@ -7,6 +7,12 @@ import Divider from "@/ui/layout/auth/divider";
 import SocialAuth from "@/ui/layout/auth/socialAuth";
 import BackToHome from "@/ui/layout/auth/backToHome";
 
+/**
+ * @file input.tsx
+ * @module  ui/layout/auth
+ * @description Reusable, accessible input field component with validation support
+ */
+
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

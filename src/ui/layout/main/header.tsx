@@ -1,0 +1,42 @@
+import React from 'react';
+import { Search, Bell, HelpCircle, Plus } from 'lucide-react';
+
+
+const Header: React.FC = () => {
+  return (
+    <header className="sticky top-0 z-30 w-full h-16 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50 flex items-center justify-between px-8">
+      <div className="flex items-center gap-8 flex-1">
+        <div className="relative max-w-md w-full hidden md:block">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search size={16} className="text-slate-500" />
+          </div>
+          <input 
+            type="text" 
+            className="block w-full pl-10 pr-3 py-2 bg-slate-900/50 border border-slate-800 rounded-xl text-sm text-slate-300 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500/50 transition-all" 
+            placeholder="Быстрый поиск..." 
+          />
+        </div>
+      </div>
+      
+      <div className="flex items-center gap-3">
+        <button className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition-colors shadow-lg shadow-sky-600/20">
+          <Plus size={14} />
+          <span>Новый проект</span>
+        </button>
+        
+        <div className="flex items-center gap-1 border-l border-slate-800 pl-4">
+          <button className="p-2 text-slate-400 hover:text-white rounded-lg relative transition-all">
+            <Bell size={20} />
+            <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-slate-950"></span>
+          </button>
+          
+          <button className="p-2 text-slate-400 hover:text-white rounded-lg transition-all">
+            <HelpCircle size={20} />
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
