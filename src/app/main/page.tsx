@@ -1,9 +1,9 @@
 'use client'
 import React, { useState, useCallback } from 'react';
-import { Sidebar } from '@/ui/layout/main/sidebar/sidebar';
-import  Header  from '@/ui/layout/main/header';
-import  SectionRenderer  from '@/ui/layout/main/section/sectionRender';
-import { ENavigationKey } from '@/ui/layout/main/sidebar/types';
+import { Sidebar } from '@/ui/components/sidebar/sidebar'
+import  Header  from '@/ui/components/header';
+import  SectionRenderer  from '@/ui/components/sectionRender';
+import { ENavigationKey } from "@/ui/components/sidebar/types";
 
 const Main: React.FC = () => {
   const [activeKey, setActiveKey] = useState<ENavigationKey>(ENavigationKey.Dashboard);
@@ -19,7 +19,7 @@ const Main: React.FC = () => {
         <Header />
         <main className="flex-1 overflow-y-auto overflow-x-hidden bg-slate-950/50 custom-scrollbar">
           <div className="relative z-10 min-h-full pb-10">
-            <SectionRenderer activeKey={activeKey} />
+          <SectionRenderer activeKey={activeKey}  />
           </div>
           <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
            
