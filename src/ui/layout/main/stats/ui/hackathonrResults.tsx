@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import {
   XAxis,
@@ -12,8 +13,8 @@ import {
 
 interface HackathonData {
   name: string;      
-  wins: number;       // Победы 
-  losses: number;     // Проигрыши 
+  wins: number;       
+  losses: number;     
 }
 
 const data: HackathonData[] = [

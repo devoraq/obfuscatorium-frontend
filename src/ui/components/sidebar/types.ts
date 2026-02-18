@@ -3,13 +3,12 @@ import { LucideIcon } from 'lucide-react';
 
 export enum ENavigationKey {
   Dashboard = 'dashboard',
-  Analytics = 'analytics',
   Stats = 'stats',
   Hackathons = 'hackathons',
   HackathonFind = 'hackathon/find',
   HackathonMy = 'hackathon/my',
   HackathonCreate = 'hackathon/create',
-  Teams = 'teams',
+  Team = 'team',
   TeamMy = 'team/my',
   TeamFind = 'team/find',
   Profile = 'profile',
@@ -21,11 +20,13 @@ export enum ENavigationKey {
 export interface ISubNavItem {
   key: ENavigationKey;
   label: string;
+  path?: string;
 }
 
 export interface INavItem {
   key: ENavigationKey;
   label: string;
   icon: LucideIcon;
+  path?: string;
   subItems?: ISubNavItem[];
 }

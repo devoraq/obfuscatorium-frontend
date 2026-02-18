@@ -8,6 +8,7 @@ import MemberTeam from "@/ui/layout/main/teamMy/memberTeam";
 
 const TeamMy: React.FC = () => {
   return (
+    
     <div className="space-y-8 p-8 animate-fadeIn">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>

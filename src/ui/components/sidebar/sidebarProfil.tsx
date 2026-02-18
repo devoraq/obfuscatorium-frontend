@@ -2,7 +2,7 @@
 import React, { useState, memo } from "react";
 import { ChevronDown, LogOut } from "lucide-react";
 import { PROFILE_MENU_ITEMS } from "@/ui/components/navigation/constants";
-import { ENavigationKey } from "@/ui/layout/main/sidebar/types";
+import { ENavigationKey } from '@/ui/components/sidebar/types';
 
 interface SidebarProfileProps {
   isOpen: boolean;
