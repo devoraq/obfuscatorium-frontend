@@ -41,7 +41,7 @@ const HackathonFind: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide flex-wrap">
+      <div className="flex gap-2  pb-2  flex-wrap">
         {CATEGORIES.map((category, index) => (
           <CategoryButton
             key={index}

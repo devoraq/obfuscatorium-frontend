@@ -38,7 +38,7 @@ export const NAVIGATION_ITEMS: INavItem[] = [
 
 export const PROFILE_MENU_ITEMS = [
   { key: ENavigationKey.Profile, label: "Мой профиль", icon: User, path: '/main/profile' },
-  { key: ENavigationKey.Notifications, label: "Уведомления", icon: Bell,  path: '/main/notifications '},
+  { key: ENavigationKey.Notifications, label: "Уведомления", icon: Bell,  path: '/main/notifications'},
   { key: ENavigationKey.Subscription, label: "Подписка", icon: CreditCard,  path: '/main/subscription' },
   { key: ENavigationKey.Settings, label: "Настройки", icon: Settings,  path: '/main/settings'},
 ];

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 import { Bell, HelpCircle, Plus } from 'lucide-react';
 import SearchInput from '@/ui/components/searchInput'
 
@@ -14,16 +15,16 @@ const Header: React.FC = () => {
       </div>
       
       <div className="flex items-center gap-3">
-        <button className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition-colors shadow-lg shadow-sky-600/20">
+        <Link href='/main/hackaton/create' className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition-colors shadow-lg shadow-sky-600/20">
           <Plus size={14} />
           <span>Новый проект</span>
-        </button>
+        </Link>
         
         <div className="flex items-center gap-1 border-l border-slate-800 pl-4">
-          <button className="p-2 text-slate-400 hover:text-white rounded-lg relative transition-all">
+          <Link href='/main/notifications' className="p-2 text-slate-400 hover:text-white rounded-lg relative transition-all">
             <Bell size={20} />
             <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-slate-950"></span>
-          </button>
+          </Link>
           
           <button className="p-2 text-slate-400 hover:text-white rounded-lg transition-all">
             <HelpCircle size={20} />

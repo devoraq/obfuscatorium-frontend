@@ -10,7 +10,7 @@ const Main = ({children}: {
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden relative">
         <Header />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-slate-950/50 custom-scrollbar">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-slate-950/50 hide-scrollbar">
           {children}
         </main>
       </div>
