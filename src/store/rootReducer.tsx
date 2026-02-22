@@ -1,12 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import sidebarReducer from "@/store/slices/sidebarSlice";
-import navigationReducer from "@/store/slices/navigationSlice";
-import authSlice from "@/features/auth/model/authSlice"
+import authSlice from "@/features/auth/model/authSlice";
+import navSlice from "@/features/navigate-menu/model/navigateSlice"
 
-// сюда будут подключаться entity / feature slices
 export const rootReducer = combineReducers({
-  sidebar: sidebarReducer,
-  navigation: navigationReducer,
   auth: authSlice,
+  nav: navSlice,
 });

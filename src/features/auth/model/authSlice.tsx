@@ -75,7 +75,7 @@ const authSlice = createSlice({
 })
 
 // --- Экспорт действий ---
-export const { loginSuccess, loginFailure, logout, updateUser } = authSlice.actions
+export const { loginSuccess, loginFailure, logout, updateUser } = authSlice.actions;
 
 // --- Экспорт редьюсера ---
-export default authSlice.reducer
+export default authSlice.reducer;

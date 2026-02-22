@@ -2,7 +2,7 @@
 
 import React, { memo, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { INavItem, ENavigationKey } from '@/ui/components/sidebar/types';
+import { INavItem, ENavigationKey } from '@/ui/layout/nav/types';
 
 interface SidebarItemProps {
   item: INavItem;
