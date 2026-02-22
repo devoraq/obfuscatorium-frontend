@@ -1,30 +1,30 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 
 interface LogoProps {
-  className?: string;
+  imageSize?: string; 
+  textSize?: string; 
 }
 
-export const Logo: React.FC<LogoProps> = ({ className }) => (
-  <Link
-    href="/"
-    className={`flex items-center gap-2 ${className}`}
-    aria-label="Перейти на главную страницу сайта"
-  >
-    <div className="relative h-16 w-24">
-      <Image
-        src="/OBF.svg"
-        alt="Obfuscatorium"
-        className="opacity-80 hover:opacity-100 transition-opacity object-contain"
-        fill
-        sizes="96px"
-        loading="lazy"
-        title="Obfuscatorium" // если есть alt, этот тег нужно убрать, это получается дублирование?
-      />
+export const Logo: React.FC<LogoProps> = ({ 
+  imageSize = "h-16 w-24",
+  textSize = "text-xl md:text-2xl",
+}) => {
+  return (
+    <div className='flex items-center gap-2'>
+      <div className={`relative ${imageSize}`}>
+        <Image
+          src="/OBF.svg"
+          alt="Obfuscatorium"
+          className="opacity-80 hover:opacity-100 transition-opacity object-contain"
+          fill
+          sizes="(max-width: 768px) 64px, 96px"
+          loading="lazy"
+        />
+      </div>
+      <span className={`${textSize} font-bold bg-linear-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent`}>
+        Obfuscatorium
+      </span>
     </div>
-    <span className="text-xl md:text-2xl font-bold bg-linear-to-r from-sky-600 to-sky-400 bg-clip-text text-transparent">
-      Obfuscatorium
-    </span>
-  </Link>
-);
+  );
+};
