@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0284c7", // цвет sky-600
+  themeColor: "#0284c7", 
 };
 
 export const robots = {
@@ -83,7 +83,7 @@ export const robots = {
     allow: ["/", "/login", "/register"],
     disallow: [
       "/admin/",
-      "/dashboard/",
+      "/main/dashboard/",
       "/profile/",
       "/api/",
       "/_next/",
@@ -93,40 +93,6 @@ export const robots = {
   },
 };
 
-export const sitemap = {
-  pages: [
-    {
-      url: "https://obfuscatorium.ru",
-      lastModified: new Date(),
-      changeFrequency: "daily" as const,
-      priority: 1.0,
-    },
-    {
-      url: "https://obfuscatorium.ru/register",
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: "https://obfuscatorium.ru/login",
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: "https://obfuscatorium.ru/privacy",
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: "https://obfuscatorium.ru/terms",
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-  ],
-};
 
 export default function RootLayout({
   children,
