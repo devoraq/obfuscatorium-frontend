@@ -8,7 +8,7 @@ import {
   User,
   PieChart,
 } from "lucide-react";
-import { ENavigationKey, INavItem } from "@/ui/components/sidebar/types";
+import { ENavigationKey, INavItem } from "@/ui/layout/nav/types";
 
 export const NAVIGATION_ITEMS: INavItem[] = [
   { key: ENavigationKey.Dashboard, label: "Главная", icon: LayoutDashboard,  path: '/main/dashboard'},

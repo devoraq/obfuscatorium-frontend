@@ -12,7 +12,7 @@ import {
   PROFILE_MENU_ITEMS,
 } from "@/ui/components/navigation/constants";
 
-import { ENavigationKey } from "@/ui/components/sidebar/types";
+import { ENavigationKey } from "@/ui/layout/nav/types";
 import { Logo } from "@/ui/components/logo";
 
 import { 
@@ -110,9 +110,7 @@ export const Sidebar: React.FC = memo(() => {
   }, [dispatch]);
 
   return (
-    <aside
-      className={`h-screen sticky top-0 bg-slate-900/95 backdrop-blur-xl border-r border-slate-800/60 flex flex-col transition-all duration-500 z-40 shrink-0 ${isOpen ? "w-72" : "w-20"}`}
-    >
+    <aside className={`h-screen sticky top-0 bg-slate-900/95 backdrop-blur-xl border-r border-slate-800/60 flex flex-col transition-all duration-500 z-40 shrink-0 ${isOpen ? "w-72" : "w-20"}`}>
       <div className="p-4 h-20 flex items-center border-b border-slate-800/40 overflow-hidden">
         <Logo
           imageSize="h-10 w-10"
