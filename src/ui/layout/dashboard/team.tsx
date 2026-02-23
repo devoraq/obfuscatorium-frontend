@@ -1,5 +1,6 @@
 import React from "react";
 import { Users, ArrowRight, UserPlus } from "lucide-react";
+
 interface TeamMember {
   id: string;
   name: string;
@@ -51,6 +52,7 @@ const Team: React.FC = () => {
 
   return (
     <div className="xl:col-span-1 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 backdrop-blur-sm flex flex-col">
+      
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <Users size={20} className="text-sky-400" />
