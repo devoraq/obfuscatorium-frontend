@@ -12,12 +12,12 @@ export interface Contest {
 };
 
 export interface ContestSlice {
-  contests: Contest[],
+  events: Contest[],
   event: Contest,
 }
 
 const initialState: ContestSlice = {
-  contests: [],
+  events: [],
   event: {
     id: '',
     title: '',
@@ -33,7 +33,7 @@ const contestSlice = createSlice({
   initialState,
   reducers: {
     setContests(state, action) {
-      state.contests = action.payload.contests;
+      state.events = action.payload.contests;
     },
     setEvent(state, action) {
       state.event = action.payload.contest;
