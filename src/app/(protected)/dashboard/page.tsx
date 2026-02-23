@@ -4,9 +4,9 @@ import React from 'react';
 import { Sidebar } from '@/ui/layout/nav/sideBar'
 import Header from '@/ui/components/header';
 
-import Stats from '@/ui/layout/main/dashboard/ui/stats'
-import Team from '@/ui/layout/main/dashboard/ui/team'
-import Events from '@/ui/layout/main/dashboard/ui/events';
+import Stats from '@/ui/layout/dashboard/stats'
+import Team from '@/ui/layout/dashboard/team'
+import Events from '@/ui/layout/dashboard/events';
 
 const Dashboard: React.FC = () => {
  return (
@@ -31,13 +31,3 @@ const Dashboard: React.FC = () => {
   );
 };
 export default Dashboard;
-
-    <div className="flex h-screen w-full bg-slate-950 text-slate-100 overflow-hidden">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden relative">
-        <Header />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-slate-950/50 hide-scrollbar">
-          
-        </main>
-      </div>
-    </div>

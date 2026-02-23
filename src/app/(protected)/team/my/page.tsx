@@ -5,8 +5,8 @@ import { Sidebar } from '@/ui/layout/nav/sideBar'
 import Header from '@/ui/components/header';
 import { MessageSquare, Users, UserPlus } from "lucide-react";
 import Button from  '@/ui/components/button'
-import HackatonTeam from "@/ui/layout/main/teamMy/hackatonTeam";
-import MemberTeam from "@/ui/layout/main/teamMy/memberTeam";
+import HackatonTeam from "@/ui/layout/teamMy/hackatonTeam";
+import MemberTeam from "@/ui/layout/teamMy/memberTeam";
 
 const TeamMy: React.FC = () => {
   return (
