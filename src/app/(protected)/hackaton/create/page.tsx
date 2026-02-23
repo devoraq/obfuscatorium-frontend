@@ -5,8 +5,8 @@ import { Sidebar } from '@/ui/layout/nav/sideBar'
 import Header from '@/ui/components/header';
 import Input from "@/ui/components/input";
 import Select from "@/ui/components/select";
-import Textarea from "@/ui/layout/main/hackathonCreate/ui/textarea";
-import FileUpload from "@/ui/layout/main/hackathonCreate/ui/fileUpload";
+import Textarea from "@/ui/layout/hackathonCreate/textarea";
+import FileUpload from "@/ui/layout/hackathonCreate/fileUpload";
 import { Info } from "lucide-react";
 
 

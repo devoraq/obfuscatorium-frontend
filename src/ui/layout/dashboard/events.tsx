@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { Calendar , UsersRound } from "lucide-react";
 
 
@@ -11,9 +14,10 @@ interface Event {
   prize?: string;
   status?: "upcoming" | "ongoing" | "finished";
   participantsCount?: number;
-}
+};
 
 const Events: React.FC = () => {
+  // const events = useAppSelector((state) => state.contest)
   const events: Event[] = [
     {
       id: "evt_001",
@@ -46,6 +50,7 @@ const Events: React.FC = () => {
   ];
   return (
     <div className="xl:col-span-2 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 backdrop-blur-sm">
+
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <Calendar size={20} className="text-indigo-400" />

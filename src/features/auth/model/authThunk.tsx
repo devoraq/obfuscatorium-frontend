@@ -50,19 +50,14 @@ export const loginThunk = createAsyncThunk<
         })
       )
 
-      return data
+      return data;
     } catch (error: unknown) {
-      let message = 'Login error'
-
-      if (error instanceof Error) {
-        message = error.message
-      } else if (typeof error === 'string') {
-        message = error
-      }
-
       dispatch(logout())
-      dispatch(loginFailure(message))
-      return rejectWithValue(message)
+      if (error instanceof Error) {
+        dispatch(loginFailure(error.message))
+        return rejectWithValue(error.message)
+      }
+      return rejectWithValue('Unknown error')
     }
   }
 )

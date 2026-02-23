@@ -6,7 +6,7 @@ import Header from '@/ui/components/header';
 import { Filter, Globe, Cpu, Landmark, Shield, Gamepad2, Sparkles } from "lucide-react";
 import SearchInput from "@/ui/components/searchInput";
 import CategoryButton from "@/ui/components/categoryButton";
-import HackathonCard from '@/ui/layout/main/hackathonFind/ui/hackathonCard'
+import HackathonCard from '@/ui/layout/hackathonFind/hackathonCard'
 
 
 const CATEGORIES = [

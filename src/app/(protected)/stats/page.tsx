@@ -3,9 +3,9 @@
 import React from "react";
 import { Sidebar } from '@/ui/layout/nav/sideBar'
 import Header from '@/ui/components/header';
-import RatingChart from "@/ui/layout/main/stats/ui/ratingChart";
-import HackathonrResults from "@/ui/layout/main/stats/ui/hackathonrResults";
-import CardStats from "@/ui/layout/main/stats/ui/cardStats";
+import RatingChart from "@/ui/layout/stats/ratingChart";
+import HackathonrResults from "@/ui/layout/stats/hackathonrResults";
+import CardStats from "@/ui/layout/stats/cardStats";
 import Select from "@/ui/components/select";
 /**
  * @file ratingChart.tsx
