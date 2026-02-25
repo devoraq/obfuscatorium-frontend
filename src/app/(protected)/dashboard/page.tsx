@@ -7,6 +7,7 @@ import Header from '@/ui/components/header';
 import Stats from '@/entities/stats/ui/stats';
 import Team from '@/entities/teams/ui/team';
 import Events from '@/entities/contests/ui/events';
+import Link from 'next/link';
 
 const Dashboard: React.FC = () => {
  return (
@@ -45,7 +46,7 @@ const Dashboard: React.FC = () => {
                     <Calendar size={20} className="text-indigo-400" />
                     <h2 className="text-lg font-bold text-white">Предстоящие События</h2>
                   </div>
-                  <button className="text-sky-400 text-xs font-bold hover:underline uppercase tracking-wider">Все хакатоны</button>
+                  <Link href='/hackaton/all' className="text-sky-400 text-xs font-bold hover:underline uppercase tracking-wider">Все хакатоны</Link>
                 </div>
                 <div className="space-y-3">
                   <Events />

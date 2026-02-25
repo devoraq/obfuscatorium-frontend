@@ -9,6 +9,8 @@ export interface Contest {
   prize?: string;
   status?: "upcoming" | "ongoing" | "finished";
   participantsCount?: number;
+  isParticipating?: boolean;
+  description?: string;
 };
 
 export interface ContestSlice {

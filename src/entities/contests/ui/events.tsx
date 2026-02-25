@@ -3,9 +3,17 @@
 import React from "react";
 import { useAppSelector } from "@/store/hooks";
 import { UsersRound } from "lucide-react";
+import { Contest } from "@/entities/contests/model/contestSlice";
+import Link from 'next/link'
 
-const Events: React.FC = () => {
-    const events = useAppSelector((state) => state.contest.events);
+interface EventsProps {
+  data?: Contest[]; 
+}
+
+const Events: React.FC<EventsProps> = ({ data })=> {
+    const  storeEvents = useAppSelector((state) => state.contest.events);
+     // Используем data, если передали, иначе берем из store
+  const events = data || storeEvents;
 
     if (!events || events.length === 0) {
         return (
@@ -41,7 +49,7 @@ const Events: React.FC = () => {
         ) : null;
 
         return (
-            <div key={event.id} className="flex items-center gap-4 p-4 bg-slate-800/20 border border-slate-800/40 rounded-2xl hover:bg-slate-800/40 hover:border-slate-700/60 transition-all group">
+            <div key={event.id} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-slate-800/20 border border-slate-800/40 rounded-2xl hover:bg-slate-800/40 hover:border-slate-700/60 transition-all group">
 
                 <div className="w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex flex-col items-center justify-center shrink-0">
                 <span className="text-[10px] uppercase font-black text-indigo-400 leading-none">{event.month}</span>
@@ -58,9 +66,9 @@ const Events: React.FC = () => {
                 </div>
                 </div>
 
-                <button className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition-all shadow-lg shadow-sky-600/10 active:scale-95" data-event-id={event.id} data-action="participate">
+                <Link  href={`/hackaton/${event.id}`} className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition-all shadow-lg shadow-sky-600/10 active:scale-95" data-event-id={event.id} data-action="participate">
                 {buttonText}
-                </button>
+                </Link>
             </div>
         );
     });
