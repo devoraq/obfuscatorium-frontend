@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Sidebar } from '@/ui/layout/nav/sideBar'
-import Header from '@/ui/components/header';
-import { Trophy } from 'lucide-react';
-import ActiveHackathon from '@/ui/layout/hackathonMy/activeHackathon'
-import PastHackathon from '@/ui/layout/hackathonMy/pastHackathon'
+import React from "react";
+import { Sidebar } from "@/ui/layout/nav/sideBar";
+import Header from "@/ui/components/header";
+import { Trophy } from "lucide-react";
+import ActiveHackathon from "@/ui/layout/hackathonMy/activeHackathon";
+import PastHackathon from "@/ui/layout/hackathonMy/pastHackathon";
+import { MyHackathons } from "@/ui/layout/hackathonMy/myHackaton";
 
 const HackathonMy: React.FC = () => {
   return (
@@ -26,13 +27,13 @@ const HackathonMy: React.FC = () => {
                 Отслеживайте прогресс и дедлайны ваших текущих проектов
               </p>
             </div>
-          < ActiveHackathon/>
+            <MyHackathons />
+            <ActiveHackathon />
             <PastHackathon />
-          </div>          
+          </div>
         </main>
       </div>
     </div>
-
   );
 };
 

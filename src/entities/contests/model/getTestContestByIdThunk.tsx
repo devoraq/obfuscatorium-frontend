@@ -10,7 +10,7 @@ export const getContestByIdThunk = createAsyncThunk<
   { rejectValue: string }
 >("contests/getById", async (id, { rejectWithValue, dispatch }) => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     const contest = mockContests.find((c) => c.id === id);
 

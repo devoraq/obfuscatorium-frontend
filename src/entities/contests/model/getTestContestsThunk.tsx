@@ -9,7 +9,7 @@ export const getContestsThunk = createAsyncThunk<
   { rejectValue: string }
 >('contests/getAll', async (_, { dispatch, rejectWithValue }) => {
   try {
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await new Promise(resolve => setTimeout(resolve, 100));
     
     dispatch(setContests(mockContestsResponse));
     return mockContestsResponse;

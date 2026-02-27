@@ -31,8 +31,9 @@ const RatingChart: React.FC = () => {
   return (
     <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 h-96">
       <h3 className="text-lg font-semibold mb-6">Динамика рейтинга</h3>
+       <div className="h-75 w-full">
       <ResponsiveContainer width="100%" height="85%">
-        <AreaChart data={data}>
+        <AreaChart data={data}  margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           {/* сетка */}
           <CartesianGrid
             strokeDasharray="3 3"
@@ -74,6 +75,7 @@ const RatingChart: React.FC = () => {
           />
         </AreaChart>
       </ResponsiveContainer>
+    </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Sidebar } from "@/ui/layout/nav/sideBar";
 import Header from "@/ui/components/header";
 import Input from "@/ui/components/input";
@@ -13,13 +14,14 @@ import {
   Calendar,
   MapPin,
   Save,
-  Rocket,
   Link2,
-  Plus,
+  ArrowLeft,
+  CheckCircle2,
   Trash2,
+  Plus,
 } from "lucide-react";
 
-const HackathonCreate: React.FC = () => {
+const HackathonEdit: React.FC = () => {
   return (
     <div className="flex h-screen w-full bg-slate-950 text-slate-100 overflow-hidden">
       <Sidebar />
@@ -28,28 +30,46 @@ const HackathonCreate: React.FC = () => {
         <main className="flex-1 overflow-y-auto overflow-x-hidden bg-slate-950/50 hide-scrollbar">
           <div className="min-h-screen bg-slate-950 py-6 md:py-12">
             <div className="max-w-4xl mx-auto space-y-6 md:space-y-8 px-3 sm:px-4">
+              <div className="flex items-center justify-between">
+                <Link
+                  href="/hackaton/my"
+                  className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group"
+                >
+                  <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 group-hover:border-slate-700">
+                    <ArrowLeft size={16} className="shrink-0" />
+                    <span className="text-sm font-medium leading-none">
+                      Назад
+                    </span>
+                  </div>
+                </Link>
+
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                  <CheckCircle2 size={14} />
+                  <span className="text-xs font-bold uppercase tracking-wider">
+                    Опубликовано
+                  </span>
+                </div>
+              </div>
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div className="text-center md:text-left">
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 bg-linear-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent px-2">
-                    Создать новый хакатон
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-sky-400 to-purple-400 bg-clip-text text-transparent">
+                    Редактирование хакатона
                   </h1>
                   <p className="text-sm sm:text-base text-slate-400 mt-1">
-                    Заполните информацию о вашем мероприятии
+                    {/* название хакатона */}
                   </p>
                 </div>
-
-                <div className="flex items-center justify-center md:justify-end gap-2 sm:gap-3 ">
+                <div className="flex items-center justify-center md:justify-end gap-2 sm:gap-3">
                   <button className="px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 font-bold hover:bg-slate-800 active:scale-95 hover:text-white transition-all flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
                     <Save size={16} className="sm:w-4.5 sm:h-4.5" />
                     <span>Сохранить</span>
                   </button>
                   <button className="px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl bg-sky-600 text-white font-bold hover:bg-sky-500 transition-all shadow-lg shadow-sky-600/20 active:scale-95 flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-                    <Rocket size={16} className="sm:w-4.5 sm:h-4.5" />
-                    <span>Опубликовать</span>
+                    <Save size={16} className="sm:w-4.5 sm:h-4.5" />
+                    <span>Предпросмотр</span>
                   </button>
                 </div>
               </div>
-
               <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-6 md:space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <section className="space-y-4 md:space-y-6">
@@ -165,11 +185,28 @@ const HackathonCreate: React.FC = () => {
                     rows={6}
                   />
                 </section>
+
+                <section className="pt-6 border-t border-slate-800/50">
+                  <div className="bg-red-500/5 border border-red-500/10 rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="text-center sm:text-left">
+                      <h3 className="text-sm font-bold text-red-400 uppercase tracking-wider">
+                        Danger zone
+                      </h3>
+                      <p className="text-xs text-slate-500 mt-1">
+                        Удаление хакатона приведет к потере всех данных и заявок
+                        участников.
+                      </p>
+                    </div>
+                    <button className="px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold hover:bg-red-950 hover:text-white transition-all active:scale-95">
+                      Удалить мероприятие
+                    </button>
+                  </div>
+                </section>
               </div>
 
               <InfoMessage
-                infoText=" Мероприятие будет отправлено на модерацию. Обычно проверка
-                  занимает до 24 часов."
+                infoText="Изменения вступят в силу немедленно. Если вы измените даты или
+                  формат, участники получат уведомление."
               />
             </div>
           </div>
@@ -179,4 +216,4 @@ const HackathonCreate: React.FC = () => {
   );
 };
 
-export default HackathonCreate;
+export default HackathonEdit;
