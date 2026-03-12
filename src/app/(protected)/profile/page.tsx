@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Sidebar } from '@/ui/layout/nav/sideBar'
+import Sidebar from '@/ui/layout/nav/sideBar';
 import Header from '@/ui/components/header';
 
 const Profile: React.FC = () => {

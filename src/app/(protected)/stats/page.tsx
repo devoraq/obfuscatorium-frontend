@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Sidebar } from '@/ui/layout/nav/sideBar'
+import Sidebar from '@/ui/layout/nav/sideBar';
 import Header from '@/ui/components/header';
 import RatingChart from "@/ui/layout/stats/ratingChart";
 import HackathonrResults from "@/ui/layout/stats/hackathonrResults";

@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/postcss": "^4.1.18",
     "bootstrap": "^5.3.8",
+    "classnames": "^2.5.1",
     "lucide-react": "^0.563.0",
     "next": "^16.1.6",
     "postcss": "^8.5.6",

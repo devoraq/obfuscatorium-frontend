@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 
 interface SearchInputProps {
   placeholder: string;
-  className: string;
+  className?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -25,7 +25,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="w-full pl-10 pr-4 py-3 bg-slate-900 border border-slate-800 rounded-xl focus:ring-2 focus:ring-sky-500 transition-all outline-none text-white placeholder:text-slate-600 "
+        className="w-full pl-10 pr-4 px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl focus:ring-2 focus:ring-sky-500 transition-all outline-none text-white placeholder:text-slate-600 "
       />
     </div>
   );

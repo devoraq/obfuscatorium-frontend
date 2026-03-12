@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setEvent } from './contestSlice';
 
-interface Contest {
+export interface Contest {
   name: string,
   description: string,
   type: string,

@@ -68,13 +68,13 @@ const ActiveHackathon: React.FC = () => {
               </div>
             </div>
 
-            <button className="p-3 bg-slate-800 rounded-xl group-hover:bg-sky-500 transition-all">
-              <ChevronRight size={20} className="text-white" />
+            <button className="p-3 bg-slate-800 rounded-xl group-hover:bg-sky-500 transition-all w-full md:w-10 flex justify-end md:justify-center">
+              <ChevronRight size={20} className="text-white items-end" />
             </button>
           </div>
         ))}
       </div>
-    </div>
+    </div>  
   );
 };
 

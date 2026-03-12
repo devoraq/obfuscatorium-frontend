@@ -33,7 +33,8 @@ const HackathonResults: React.FC = () => {
       <h3 className="text-lg font-semibold mb-6 text-white">
         Результаты хакатонов (Победы vs Проигрыши)
       </h3>
-      <ResponsiveContainer width="100%" height="85%">
+       <div className="h-75 w-full">
+            <ResponsiveContainer width="100%" height="85%">
         <BarChart 
           data={data} 
           barGap={8}
@@ -97,6 +98,7 @@ const HackathonResults: React.FC = () => {
           />
         </BarChart>
       </ResponsiveContainer>
+    </div>
     </div>
   );
 };
