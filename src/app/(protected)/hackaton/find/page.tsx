@@ -1,12 +1,12 @@
 'use client';
 
 import React from "react";
-import { Sidebar } from '@/ui/layout/nav/sideBar'
+import Sidebar from '@/ui/layout/nav/sideBar'
 import Header from '@/ui/components/header';
 import { Filter, Globe, Cpu, Landmark, Shield, Gamepad2, Sparkles } from "lucide-react";
 import SearchInput from "@/ui/components/searchInput";
 import CategoryButton from "@/ui/components/categoryButton";
-import HackathonCard from '@/ui/layout/hackathonFind/hackathonCard'
+import FindHackaton from "@/entities/contests/ui/findHackaton";
 
 
 const CATEGORIES = [
@@ -52,7 +52,7 @@ const HackathonFind: React.FC = () => {
                 />
               ))}
             </div>
-            <HackathonCard />
+            <FindHackaton />
           </div>          
         </main>
       </div>

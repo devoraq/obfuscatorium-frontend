@@ -11,7 +11,7 @@ import {
   toggleSidebar,
 } from "@/features/navigate-menu/model/navigateSlice";
 
-export const Sidebar = () => {
+const Sidebar = () => {
   const dispatch = useAppDispatch();
 
   const isOpen = useAppSelector((state) => state.nav.isSidebarOpen);
@@ -51,3 +51,4 @@ export const Sidebar = () => {
     </aside>
   );
 };
+export default Sidebar;

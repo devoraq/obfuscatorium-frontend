@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Sidebar } from '@/ui/layout/nav/sideBar'
+import Sidebar from '@/ui/layout/nav/sideBar';
 import Header from '@/ui/components/header';
 import { UserPlus,  Star, User } from "lucide-react";
 import SearchInput from '@/ui/components/searchInput'

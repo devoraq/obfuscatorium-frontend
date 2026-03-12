@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Sidebar } from '@/ui/layout/nav/sideBar'
+import Sidebar from '@/ui/layout/nav/sideBar';
 import Header from '@/ui/components/header';
 import { MessageSquare, Users, UserPlus } from "lucide-react";
 import Button from  '@/ui/components/button'
