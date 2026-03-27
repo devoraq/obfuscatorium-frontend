@@ -5,12 +5,25 @@ export interface StatItem {
   id: string;
   label: string;
   value: number | string;
-  icon: LucideIcon;
-  color: string;
-  bg: string;
+  iconName: string; 
   key: string;
 }
 
+export const STATS_ICON_MAP: Record<string, LucideIcon> = {
+  trophy: Trophy,
+  briefcase: Briefcase,
+  zap: Zap,
+  award: Award,
+};
+
+export type StatsIconName = keyof typeof STATS_ICON_MAP;
+
+export const STATS_STYLES: Record<string, { color: string; bg: string }> = {
+  trophy: { color: "text-amber-400", bg: "bg-amber-400/10" },
+  briefcase: { color: "text-sky-400", bg: "bg-sky-400/10" },
+  zap: { color: "text-indigo-400", bg: "bg-indigo-400/10" },
+  award: { color: "text-emerald-400", bg: "bg-emerald-400/10" },
+};
 
 export interface StatsState {
     stats: StatItem[];
@@ -24,36 +37,29 @@ const initialState: StatsState = {
             key: "active_hackathons",
             label: "Активные хакатоны",
             value: 2,
-            icon: Trophy,
-            color: "text-amber-400",
-            bg: "bg-amber-400/10",
+           iconName: "trophy",
         },
         {
             id: "2",
             key: "my_projects",
             label: "Мои проекты",
             value: 12,
-            icon: Briefcase,
-            color: "text-sky-400",
-            bg: "bg-sky-400/10",
+            iconName: "briefcase", 
+            
         },
         {
             id: "3",
             key: "total_participations",
             label: "Всего участий",
             value: 28,
-            icon: Zap,
-            color: "text-indigo-400",
-            bg: "bg-indigo-400/10",
+           iconName: "zap",
         },
         {
             id: "4",
             key: "wins",
             label: "Победы",
             value: 5,
-            icon: Award,
-            color: "text-emerald-400",
-            bg: "bg-emerald-400/10",
+           iconName: "award",
         },
     ],
 };

@@ -1,6 +1,3 @@
-
-import { LucideIcon } from 'lucide-react';
-
 export enum ENavigationKey {
   Dashboard = 'dashboard',
   Stats = 'stats',
@@ -26,7 +23,7 @@ export interface ISubNavItem {
 export interface INavItem {
   key: ENavigationKey;
   label: string;
-  icon: LucideIcon;
+  iconName: string; 
   path?: string;
   subItems?: ISubNavItem[];
 }

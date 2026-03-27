@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, {  } from "react";
 import Sidebar from "@/ui/layout/nav/sideBar";
 import Header from "@/ui/components/header";
 import { MapPin, Trophy, Users, ArrowLeft, Calendar, Share2, Bookmark } from "lucide-react";

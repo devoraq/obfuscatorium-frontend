@@ -23,7 +23,7 @@ interface Item {
 type MenuItemWithPath = {
   key: ENavigationKey;
   label: string;
-  icon: LucideIcon;
+  iconName: string;
   path: string;
   subItems?: never;
 };
@@ -31,30 +31,40 @@ type MenuItemWithPath = {
 type MenuItemWithSub = {
   key: ENavigationKey;
   label: string;
-  icon: LucideIcon;
+  iconName: string;
   subItems: Item[];
   path?: never;
 };
 
 type MenuItem = MenuItemWithPath | MenuItemWithSub;
 
+export const ICON_MAP: Record<string, LucideIcon> = {
+  dashboard: LayoutDashboard,
+  trophy: Trophy,
+  users: Users,
+  pieChart: PieChart,
+  chevronDown: ChevronDown,
+};
+export  type IconName = keyof typeof ICON_MAP;
+
+
 const NAV_ITEMS: MenuItem[] = [
   {
     key: ENavigationKey.Dashboard,
     label: "Главная",
-    icon: LayoutDashboard,
+    iconName: "dashboard", 
     path: "/dashboard",
   },
   {
     key: ENavigationKey.Stats,
     label: "Статистика",
-    icon: PieChart,
+    iconName: "pieChart",
     path: "/stats",
   },
   {
     key: ENavigationKey.Hackathons,
     label: "Хакатоны",
-    icon: Trophy,
+    iconName: "trophy",
     subItems: [
       { key: ENavigationKey.HackathonFind, label: "Найти", path: "/hackaton/find" },
       { key: ENavigationKey.HackathonMy, label: "Мои", path: "/hackaton/my" },
@@ -64,7 +74,7 @@ const NAV_ITEMS: MenuItem[] = [
   {
     key: ENavigationKey.Team,
     label: "Команда",
-    icon: Users,
+    iconName: "users",  
     subItems: [
       { key: ENavigationKey.TeamMy, label: "Моя", path: "/team/my" },
       { key: ENavigationKey.TeamFind, label: "Найти", path: "/team/find" },
@@ -94,7 +104,7 @@ export const SidebarNavigation = ({ isOpen, activeKey, openGroups }: Props) => {
   return (
     <nav className="flex-1 px-4 py-4 flex flex-col gap-1 overflow-y-auto">
       {NAV_ITEMS.map((item) => {
-        const Icon = item.icon;
+        const Icon = ICON_MAP[item.iconName as IconName];
         const hasSub = "subItems" in item;
 
         const isActive =  activeKey === item.key || ("subItems" in item && item.subItems?.some((s) => s.key === activeKey));
