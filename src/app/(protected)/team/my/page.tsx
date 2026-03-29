@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Sidebar } from '@/ui/layout/nav/sideBar'
-import Header from '@/ui/components/header';
+import Header from '@/ui/layout/header/header';
 import { MessageSquare, Users, UserPlus } from "lucide-react";
-import Button from  '@/ui/components/button'
+import Button from  '@/ui/components/button/button'
 import HackatonTeam from "@/ui/layout/teamMy/hackatonTeam";
 import MemberTeam from "@/ui/layout/teamMy/memberTeam";
 

@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { Sidebar } from '@/ui/layout/nav/sideBar'
-import Header from '@/ui/components/header';
+import Header from '@/ui/layout/header/header';
 import { UserPlus,  Star, User } from "lucide-react";
-import SearchInput from '@/ui/components/searchInput'
-import Button from  '@/ui/components/button'
+import SearchInput from '@/ui/components/forms-elemets/searchInput'
+import Button from  '@/ui/components/button/button'
 // в будущем можно добавить avatar
 interface Candidate {
   id: string;

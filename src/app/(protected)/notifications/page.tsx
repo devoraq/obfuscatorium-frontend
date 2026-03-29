@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Sidebar } from '@/ui/layout/nav/sideBar'
-import Header from '@/ui/components/header';
+import Header from '@/ui/layout/header/header';
 
 const Notifications: React.FC = () => {
   return (

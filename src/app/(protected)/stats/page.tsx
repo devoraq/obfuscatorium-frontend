@@ -2,11 +2,11 @@
 
 import React from "react";
 import { Sidebar } from '@/ui/layout/nav/sideBar'
-import Header from '@/ui/components/header';
+import Header from '@/ui/layout/header/header';
 import RatingChart from "@/ui/layout/stats/ratingChart";
 import HackathonrResults from "@/ui/layout/stats/hackathonrResults";
 import CardStats from "@/ui/layout/stats/cardStats";
-import Select from "@/ui/components/select";
+import Select from "@/ui/components/forms-elemets/select";
 /**
  * @file ratingChart.tsx
  * @module ui/main/section/stats/ui/ratingChart.tsx

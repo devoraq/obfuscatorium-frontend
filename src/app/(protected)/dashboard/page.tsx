@@ -3,7 +3,7 @@
 import React from 'react';
 import { Users, ArrowRight, UserPlus, Calendar } from "lucide-react";
 import { Sidebar } from '@/ui/layout/nav/sideBar'
-import Header from '@/ui/components/header';
+import Header from '@/ui/layout/header/header';
 import Stats from '@/entities/stats/ui/stats';
 import Team from '@/entities/teams/ui/team';
 import Events from '@/entities/contests/ui/events';

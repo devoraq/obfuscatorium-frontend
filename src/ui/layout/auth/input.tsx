@@ -1,31 +1,23 @@
 "use client";
-import { useId, InputHTMLAttributes, useState } from "react";
+
+import { useId, InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
 }
 
- const Input: React.FC <InputProps> = ({
+const Input: React.FC<InputProps> = ({
   label,
   error,
   disabled,
+  value,
   onChange,
   ...props
 }) => {
   const id = useId();
-  const errorId = `${id}-error`; 
-
+  const errorId = `${id}-error`;
   const hasError = Boolean(error);
-
-  const [value, setValue] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setValue(e.target.value);
-    if (onChange) {
-      onChange(e);
-    }
-  };
 
   return (
     <div className="w-full flex flex-col gap-1.5">
@@ -35,7 +27,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
           className={`
             text-sm font-semibold transition-colors duration-200
             ${disabled ? "text-slate-500" : "text-slate-300"}
-            ${hasError && !disabled ? "text-rose-400" : ""}`}
+            ${hasError && !disabled ? "text-rose-400" : ""}
+          `}
         >
           {label}
         </label>
@@ -47,7 +40,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
           id={id}
           value={value}
           disabled={disabled}
-          onChange={handleChange}
+          onChange={onChange}
           aria-invalid={hasError}
           aria-describedby={hasError ? errorId : undefined}
           className={`
@@ -76,4 +69,4 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   );
 };
 
-export default Input
+export default Input;

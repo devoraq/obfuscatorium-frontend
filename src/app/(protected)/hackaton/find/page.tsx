@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Sidebar } from '@/ui/layout/nav/sideBar'
-import Header from '@/ui/components/header';
+import Header from '@/ui/layout/header/header';
 import { Filter, Globe, Cpu, Landmark, Shield, Gamepad2, Sparkles } from "lucide-react";
-import SearchInput from "@/ui/components/searchInput";
-import CategoryButton from "@/ui/components/categoryButton";
+import SearchInput from "@/ui/components/forms-elemets/searchInput";
+import CategoryButton from "@/ui/components/button/categoryButton";
 import HackathonCard from '@/ui/layout/hackathonFind/hackathonCard'
 
 

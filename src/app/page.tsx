@@ -1,5 +1,5 @@
-import Header from "@/ui/layout/header/header";
-import Footer from "@/ui/layout/footer/footer";
+import Header from "@/ui/layout/landing-page/header";
+import Footer from "@/ui/layout/landing-page/footer";
 import HeroSection from "@/ui/layout/landing-page/hero";
 import FeaturesSection from "@/ui/layout/landing-page/features";
 import Stats from "@/ui/layout/landing-page/stats";

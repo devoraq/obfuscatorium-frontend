@@ -3,11 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import { Sidebar } from "@/ui/layout/nav/sideBar";
-import Header from "@/ui/components/header";
-import Input from "@/ui/components/input";
-import Select from "@/ui/components/select";
-import Textarea from "@/ui/components/textarea";
-import InfoMessage from "@/ui/components/info-message";
+import Header from "@/ui/layout/header/header";
+import Input from "@/ui/components/forms-elemets/input";
+import Select from "@/ui/components/forms-elemets/select";
+import Textarea from "@/ui/components/forms-elemets/textarea";
+import InfoMessage from "@/ui/components/info-messages/info-message";
+import DangerZone from "@/ui/components/info-messages/danger-zone";
 import FileUpload from "@/ui/layout/hackathonCreate/fileUpload";
 import Timeline from "@/ui/layout/hackathonCreate/timeline";
 import {
@@ -187,20 +188,9 @@ const HackathonEdit: React.FC = () => {
                 </section>
 
                 <section className="pt-6 border-t border-slate-800/50">
-                  <div className="bg-red-500/5 border border-red-500/10 rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-sm font-bold text-red-400 uppercase tracking-wider">
-                        Danger zone
-                      </h3>
-                      <p className="text-xs text-slate-500 mt-1">
-                        Удаление хакатона приведет к потере всех данных и заявок
-                        участников.
-                      </p>
-                    </div>
-                    <button className="px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold hover:bg-red-950 hover:text-white transition-all active:scale-95">
-                      Удалить мероприятие
-                    </button>
-                  </div>
+                <DangerZone 
+                textInfo="Удаление хакатона приведет к потере всех данных и заявок участников." 
+                textButton="Удалить мероприятие"/>    
                 </section>
               </div>
 

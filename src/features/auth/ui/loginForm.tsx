@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import Link from "next/link";
 
 import { loginThunk } from "@/features/auth/model/authThunk";
-import Input from "@/ui/components/auth/input";
+import Input from "@/ui/layout/auth/input";
 import Divider from "@/ui/layout/auth/divider";
 import SocialAuth from "@/ui/layout/auth/socialAuth";
 
@@ -16,10 +16,13 @@ const LoginForm: React.FC = () => {
     const dispatch = useAppDispatch();
     const isAuth = useAppSelector((state) => state.auth.isAuth);
     const isError = useAppSelector((state) => state.auth.isError);
+    const errorMessage = useAppSelector((state) => state.auth.errorMessage)
     const userId = useAppSelector((state) => state.auth.user?.id);
-
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [touched, setTouched] = useState({email: false, password: false})
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -28,7 +31,19 @@ const LoginForm: React.FC = () => {
         dispatch(loginThunk({ username: email, password: password }));
     };
 
-    const hasError = (value: string) => isError && value.trim() === "" || isError;
+    const getEmailError = () => {
+    if (!touched.email) return undefined;
+    if (!email.trim()) return "Email обязателен";
+    if (isError && errorMessage) return errorMessage;
+    return undefined;
+  };
+
+  const getPasswordError = () => {
+    if (!touched.password) return undefined;
+    if (!password.trim()) return "Пароль обязателен";
+    if (isError && errorMessage) return errorMessage;
+    return undefined;
+  };
 
     useEffect(() => {
         if (isAuth) {
@@ -38,8 +53,24 @@ const LoginForm: React.FC = () => {
   return (
     <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-sky-600/30 shadow-2xl">
       <form onSubmit={handleSubmit} className="space-y-6">
-        <Input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" hasError={hasError(email)} />
-        <Input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" hasError={hasError(password)} />
+          <Input
+          label="Email"
+          type="email"
+          placeholder="your@email.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onBlur={() => setTouched({ ...touched, email: true })}
+          error={getEmailError()}
+        />
+        <Input
+          label="Пароль"
+          type="password"
+          placeholder="••••••••"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          onBlur={() => setTouched({ ...touched, password: true })}
+          error={getPasswordError()}
+        />
 
         <div className="flex items-center justify-between">
           <label className="flex items-center text-gray-300">

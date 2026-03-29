@@ -1,62 +1,36 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import { Logo } from "@/ui/components/logo";
-import { Menu, X } from "lucide-react";
-import MobileMenu from "@/features/mobile-menu/mobileMenu";
+import React from 'react';
+import Link from 'next/link'
+import { Bell, HelpCircle, Plus } from 'lucide-react';
+import SearchInput from '@/ui/components/forms-elemets/searchInput'
+
 
 const Header: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-
-  const toggleMobileMenu = (): void => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
-    <header className="sticky top-0 z-50 bg-gray-950/95 backdrop-blur supports-backdrop-filter:bg-gray-950/60">
-      <nav
-        className="container mx-auto px-6 py-4 flex justify-between items-center"
-        aria-label="Основная навигация"
-      >
-        <Logo />
-
-        {/* Desktop menu */}
-        <div className="hidden md:flex gap-6 items-center">
-          <Link
-            href="/login"
-            className="text-gray-300 hover:text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
-            aria-label="Перейти на страницу авторизации"
-          >
-            Войти
+    <header className="sticky top-0 z-30 w-full h-16 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50 flex items-center justify-between px-8">
+      <div className="flex items-center gap-8 flex-1">
+       <SearchInput 
+       placeholder='Быстрый поиск...'
+       className='flex-1 max-w-md w-full hidden md:block'
+       />
+      </div>
+      
+      <div className="flex items-center gap-3">
+        <Link href='/hackaton/create' className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition-colors shadow-lg shadow-sky-600/20">
+          <Plus size={14} />
+          <span>Новый проект</span>
+        </Link>
+        
+        <div className="flex items-center gap-1 border-l border-slate-800 pl-4">
+          <Link href='/notifications' className="p-2 text-slate-400 hover:text-white rounded-lg relative transition-all">
+            <Bell size={20} />
+            <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-slate-950"></span>
           </Link>
-          <Link
-            href="/register"
-            className="bg-sky-700 hover:bg-sky-600 shadow-2xl shadow-sky-700/50 text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
-            aria-label="Перейти на страницу регистрации"
-          >
-            Регистрация
-          </Link>
+          
+          <button className="p-2 text-slate-400 hover:text-white rounded-lg transition-all">
+            <HelpCircle size={20} />
+          </button>
         </div>
-
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden p-2 text-gray-300 hover:text-white"
-          onClick={toggleMobileMenu}
-          aria-label="Открыть меню"
-          aria-controls="mobile-menu"
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={() => {
-          return setIsMobileMenuOpen(false);
-        }}
-      />
+      </div>
     </header>
   );
 };

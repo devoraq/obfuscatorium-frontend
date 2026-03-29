@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Sidebar } from "@/ui/layout/nav/sideBar";
-import Header from "@/ui/components/header";
+import Header from "@/ui/layout/header/header";
 import { Trophy } from "lucide-react";
 import ActiveHackathon from "@/ui/layout/hackathonMy/activeHackathon";
 import PastHackathon from "@/ui/layout/hackathonMy/pastHackathon";

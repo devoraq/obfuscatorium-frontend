@@ -2,11 +2,11 @@
 
 import React from "react";
 import { Sidebar } from "@/ui/layout/nav/sideBar";
-import Header from "@/ui/components/header";
-import Input from "@/ui/components/input";
-import Select from "@/ui/components/select";
-import Textarea from "@/ui/components/textarea";
-import InfoMessage from "@/ui/components/info-message";
+import Header from "@/ui/layout/header/header";
+import Input from "@/ui/components/forms-elemets/input";
+import Select from "@/ui/components/forms-elemets/select";
+import Textarea from "@/ui/components/forms-elemets/textarea";
+import InfoMessage from "@/ui/components/info-messages/info-message";
 import FileUpload from "@/ui/layout/hackathonCreate/fileUpload";
 import Timeline from "@/ui/layout/hackathonCreate/timeline";
 import {

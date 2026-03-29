@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "@/ui/components/input";
+import Input from "@/ui/components/forms-elemets/input";
 
 import { Clock, Plus, Trash2 } from "lucide-react";
 

@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { Sidebar } from "@/ui/layout/nav/sideBar";
-import Header from "@/ui/components/header";
+import Header from "@/ui/layout/header/header";
 import {
   MapPin,
   Trophy,
