@@ -10,7 +10,7 @@ interface EventsProps {
   data?: Contest[]; 
 }
 
-const Events: React.FC<EventsProps> = ({ data })=> {
+const Events: React.FC<EventsProps> = ({ data }) => {
     const storeEvents = useAppSelector((state) => state.contest.events);
   const events = data || storeEvents;
 

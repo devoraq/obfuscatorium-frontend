@@ -21,7 +21,8 @@ interface Contest {
 export const createContestThunk = createAsyncThunk<
   Contest,                 // сервер вернет созданный contest
   string,        // что отправляем
-  { rejectValue: string }>('contests/create', async (id, { rejectWithValue }) => {
+  { rejectValue: string }
+  >('contests/create', async (id, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/v1/contests/${id}:cancel`, {
         method: 'POST',                    
