@@ -1,5 +1,6 @@
 import React from "react";
-import { Trophy, Briefcase, Zap, Award, LucideIcon } from "lucide-react";
+import { Trophy, Briefcase, Zap, Award } from "lucide-react";
+import { StatItem } from "@/entities/stats/model/statsSlice";
 
 
 

@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Sidebar from "@/ui/layout/nav/sideBar";
 import Header from "@/ui/components/header";
 import { MapPin, Trophy, Users, ArrowLeft, Calendar, Share2, Bookmark } from "lucide-react";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "@/store/hooks";
 
 
 const HackathonDetailPage: React.FC = () => {
-  const dispatch = useAppDispatch();
   const event  = useAppSelector((state) => state.contest.currentEvent);
 
   return (

@@ -1,5 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getParticipantsThunk } from "./getParticipantsThunk";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface Contest {
   id: string;
@@ -41,10 +40,6 @@ export interface ContestSlice {
   events: Contest[];
   event: Contest;
   currentEvent: CurrContest;
-  participants: Participant[];
-  nextPageToken: string | null;
-  isLoadingParticipants: boolean;
-  participantsError: string | null;
 }
 
 const initialState: ContestSlice = {
@@ -73,38 +68,18 @@ const initialState: ContestSlice = {
     createdAt: "",
     updatedAt: "",
   },
-  participants: [],
-  nextPageToken: null,
-  isLoadingParticipants: false,
-  participantsError: null,
 };
 
 const contestSlice = createSlice({
   name: "contest",
   initialState,
   reducers: {
-    setContests(state, action: PayloadAction<{ contests: Contest[] }>) {
+    setContests(state, action) {
       state.events = action.payload.contests;
     },
-    setEvent(state, action: PayloadAction<{ contest: Contest }>) {
+    setEvent(state, action) {
       state.event = action.payload.contest;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(getParticipantsThunk.pending, (state) => {
-        state.isLoadingParticipants = true;
-        state.participantsError = null;
-      })
-      .addCase(getParticipantsThunk.fulfilled, (state, action) => {
-        state.isLoadingParticipants = false;
-        state.participants = action.payload.participants;
-        state.nextPageToken = action.payload.nextPageToken;
-      })
-      .addCase(getParticipantsThunk.rejected, (state, action) => {
-        state.isLoadingParticipants = false;
-        state.participantsError = action.payload as string;
-      });
   },
 });
 
