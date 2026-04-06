@@ -7,33 +7,33 @@ export interface Contest {
   day: number;
   location: string;
   prize?: string;
-  status?: "upcoming" | "ongoing" | "finished";
+  status?: 'upcoming' | 'ongoing' | 'finished';
   participantsCount?: number;
   isParticipating?: boolean;
   description?: string;
-};
+}
 export interface CurrContest {
-  id: string
-  name: string
-  description: string
-  status: string
-  type: string
-  startDate: string
-  endDate: string
-  registrationStart: string
-  registrationEnd: string
-  maxParticipants: number
-  maxTeams: number
-  minTeamSize: number
-  maxTeamSize: number
-  createdAt: string
-  updatedAt: string    
+  id: string;
+  name: string;
+  description: string;
+  status: string;
+  type: string;
+  startDate: string;
+  endDate: string;
+  registrationStart: string;
+  registrationEnd: string;
+  maxParticipants: number;
+  maxTeams: number;
+  minTeamSize: number;
+  maxTeamSize: number;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface ContestSlice {
-  events: Contest[],
-  event: Contest,
-  currentEvent: CurrContest,
+  events: Contest[];
+  event: Contest;
+  currentEvent: CurrContest;
 }
 
 const initialState: ContestSlice = {
@@ -60,9 +60,9 @@ const initialState: ContestSlice = {
     minTeamSize: 0,
     maxTeamSize: 0,
     createdAt: '',
-    updatedAt: ''
-  }
-}
+    updatedAt: '',
+  },
+};
 
 const contestSlice = createSlice({
   name: 'contest',
@@ -75,7 +75,7 @@ const contestSlice = createSlice({
       state.event = action.payload.contest;
     },
   },
-})
+});
 
 export const { setContests, setEvent } = contestSlice.actions;
 export default contestSlice.reducer;

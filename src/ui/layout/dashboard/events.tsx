@@ -1,9 +1,7 @@
-"use client";
+'use client';
 
-import React from "react";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { Calendar , UsersRound } from "lucide-react";
-
+import React from 'react';
+import { Calendar, UsersRound } from 'lucide-react';
 
 interface Event {
   id: string;
@@ -12,90 +10,91 @@ interface Event {
   day: number;
   location: string;
   prize?: string;
-  status?: "upcoming" | "ongoing" | "finished";
+  status?: 'upcoming' | 'ongoing' | 'finished';
   participantsCount?: number;
-};
+}
 
-const Events: React.FC = () => {
-  // const events = useAppSelector((state) => state.contest)
+export const Events: React.FC = () => {
   const events: Event[] = [
     {
-      id: "evt_001",
-      title: "Codenrock",
-      month: "Окт",
+      id: 'evt_001',
+      title: 'Codenrock',
+      month: 'Окт',
       day: 15,
-      location: "Online",
-      prize: "$5,000",
-      status: "upcoming",
+      location: 'Online',
+      prize: '$5,000',
+      status: 'upcoming',
       participantsCount: 234,
     },
     {
-      id: "evt_002",
-      title: "AI и ML",
-      month: "Окт",
+      id: 'evt_002',
+      title: 'AI и ML',
+      month: 'Окт',
       day: 22,
-      location: "Москва",
-      status: "upcoming",
+      location: 'Москва',
+      status: 'upcoming',
       participantsCount: 156,
     },
     {
-      id: "evt_003",
-      title: "Кибербезопасность",
-      month: "Ноя",
+      id: 'evt_003',
+      title: 'Кибербезопасность',
+      month: 'Ноя',
       day: 5,
-      location: "Online",
-      status: "ongoing",
+      location: 'Online',
+      status: 'ongoing',
       participantsCount: 189,
     },
   ];
   return (
-    <div className="xl:col-span-2 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 backdrop-blur-sm">
-
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-2">
-          <Calendar size={20} className="text-indigo-400" />
-          <h2 className="text-lg font-bold text-white">Предстоящие События</h2>
+    <div className='rounded-3xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-sm xl:col-span-2'>
+      <div className='mb-6 flex items-center justify-between'>
+        <div className='flex items-center gap-2'>
+          <Calendar size={20} className='text-indigo-400' />
+          <h2 className='text-lg font-bold text-white'>Предстоящие События</h2>
         </div>
-        <button className="text-sky-400 text-xs font-bold hover:underline uppercase tracking-wider">
+        <button className='text-xs font-bold tracking-wider text-sky-400 uppercase hover:underline'>
           Все хакатоны
         </button>
       </div>
 
-      <div className="space-y-3">
+      <div className='space-y-3'>
         {events.map((event) => (
           <div
             key={event.id}
-            className="flex items-center gap-4 p-4 bg-slate-800/20 border border-slate-800/40 rounded-2xl hover:bg-slate-800/40 hover:border-slate-700/60 transition-all group">
-            <div className="w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-xl flex flex-col items-center justify-center shrink-0">
-              <span className="text-[10px] uppercase font-black text-indigo-400 leading-none">
+            className='group flex items-center gap-4 rounded-2xl border border-slate-800/40 bg-slate-800/20 p-4 transition-all hover:border-slate-700/60 hover:bg-slate-800/40'
+          >
+            <div className='flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-xl border border-indigo-500/20 bg-indigo-500/10'>
+              <span className='text-[10px] leading-none font-black text-indigo-400 uppercase'>
                 {event.month}
               </span>
-              <span className="text-lg font-black text-slate-200">
+              <span className='text-lg font-black text-slate-200'>
                 {event.day}
               </span>
             </div>
 
-            <div className="flex-1 min-w-0">
-              <h3 className="text-sm font-bold text-slate-100 group-hover:text-sky-400 transition-colors truncate">
+            <div className='min-w-0 flex-1'>
+              <h3 className='truncate text-sm font-bold text-slate-100 transition-colors group-hover:text-sky-400'>
                 {event.title}
               </h3>
-              <div className="text-xs text-slate-500 flex items-center gap-2 mt-0.5 flex-wrap">
-                <span className="flex items-center gap-1">
+              <div className='mt-0.5 flex flex-wrap items-center gap-2 text-xs text-slate-500'>
+                <span className='flex items-center gap-1'>
                   {event.location}
                 </span>
-                <span className="w-1 h-1 rounded-full bg-slate-700" />
-                {typeof event.prize === "string" && event.prize.length > 0 ? (
+                <span className='h-1 w-1 rounded-full bg-slate-700' />
+                {typeof event.prize === 'string' && event.prize.length > 0 ? (
                   <div>
-                    <span className="w-1 h-1 rounded-full bg-slate-700" />
-                    <span className="text-emerald-400 font-semibold">
+                    <span className='h-1 w-1 rounded-full bg-slate-700' />
+                    <span className='font-semibold text-emerald-400'>
                       Приз: {event.prize}
                     </span>
-                  </div>) : null}
+                  </div>
+                ) : null}
                 {event.participantsCount && (
                   <>
-                    <span className="w-1 h-1 rounded-full bg-slate-700" />
-                    <span className="flex gap-2 text-slate-400">
-                      <UsersRound size={15} className="text-indigo-400"/> {event.participantsCount}
+                    <span className='h-1 w-1 rounded-full bg-slate-700' />
+                    <span className='flex gap-2 text-slate-400'>
+                      <UsersRound size={15} className='text-indigo-400' />{' '}
+                      {event.participantsCount}
                     </span>
                   </>
                 )}
@@ -103,11 +102,11 @@ const Events: React.FC = () => {
             </div>
 
             <button
-              className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition-all shadow-lg shadow-sky-600/10 active:scale-95"
+              className='rounded-lg bg-sky-600 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-sky-600/10 transition-all hover:bg-sky-500 active:scale-95'
               data-event-id={event.id}
-              data-action="participate"
+              data-action='participate'
             >
-              {event.status === "ongoing" ? "Присоединиться" : "Участвовать"}
+              {event.status === 'ongoing' ? 'Присоединиться' : 'Участвовать'}
             </button>
           </div>
         ))}
@@ -115,5 +114,3 @@ const Events: React.FC = () => {
     </div>
   );
 };
-
-export default Events;

@@ -1,5 +1,5 @@
-import React from "react";
-import { MoreVertical, User, Mail, Github } from "lucide-react";
+import React from 'react';
+import { Github, Mail, MoreVertical, User } from 'lucide-react';
 
 interface TeamMember {
   id: string;
@@ -12,98 +12,95 @@ interface TeamMember {
 
 const MEMBERS: TeamMember[] = [
   {
-    id: "1",
-    name: "Александр Воронин",
-    role: "Team Lead / Fullstack",
-    skills: ["React", "Node.js", "Go"],
-    email: "ivan@example.com",
-    github: "@ivanov",
+    id: '1',
+    name: 'Александр Воронин',
+    role: 'Team Lead / Fullstack',
+    skills: ['React', 'Node.js', 'Go'],
+    email: 'ivan@example.com',
+    github: '@ivanov',
   },
   {
-    id: "2",
-    name: "Мария Ким",
-    role: "UI/UX Designer",
-    skills: ["Figma", "Spline", "React"],
-    email: "maria@example.com",
+    id: '2',
+    name: 'Мария Ким',
+    role: 'UI/UX Designer',
+    skills: ['Figma', 'Spline', 'React'],
+    email: 'maria@example.com',
   },
   {
-    id: "3",
-    name: "Иван Смирнов",
-    role: "Backend Dev (Go)",
-    skills: ["Go", "Postgres", "Redis"],
-    github: "@alex",
+    id: '3',
+    name: 'Иван Смирнов',
+    role: 'Backend Dev (Go)',
+    skills: ['Go', 'Postgres', 'Redis'],
+    github: '@alex',
   },
   {
-    id: "4",
-    name: "Елена Петрова",
-    role: "DevOps / Infra",
-    skills: ["Docker", "K8s", "AWS"],
-    email: "elena@example.com",
+    id: '4',
+    name: 'Елена Петрова',
+    role: 'DevOps / Infra',
+    skills: ['Docker', 'K8s', 'AWS'],
+    email: 'elena@example.com',
   },
 ];
 
-const MemberTeam: React.FC = () => {
-  return (
-    <section className="space-y-6">
-      <h3 className="text-xl font-bold text-white flex items-center gap-2">
-        Участники команды
-        <span className="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs rounded-full font-mono">
-          {MEMBERS.length}
-        </span>
-      </h3>
+export const MemberTeam: React.FC = () => (
+  <section className='space-y-6'>
+    <h3 className='flex items-center gap-2 text-xl font-bold text-white'>
+      Участники команды
+      <span className='rounded-full bg-slate-800 px-2 py-0.5 font-mono text-xs text-slate-400'>
+        {MEMBERS.length}
+      </span>
+    </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {MEMBERS.map((member) => (
-          <div
-            key={member.id}
-            className="bg-slate-900/50 border border-slate-800 p-5 rounded-3xl group hover:border-sky-500/30 transition-all hover:bg-slate-900/80"
-          >
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-4">
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-sky-500/20 to-purple-500/20 border-2 border-slate-800 group-hover:border-sky-500/50 transition-colors flex items-center justify-center">
-                    <User className="w-7 h-7 text-sky-400" />
-                  </div>
-                </div>
-
-                <div className=" min-w-0 " >
-                  <h4 className="flex  font-bold text-white truncate text-wrap">
-                    {member.name}
-                  </h4>
-                  <p className="text-xs text-slate-500 font-medium">
-                    {member.role}
-                  </p>
-
-                  <div className="flex items-center gap-2 mt-1">
-                    {member.email && (
-                      <Mail size={12} className="text-slate-600" />
-                    )}
-                    {member.github && (
-                      <Github size={12} className="text-slate-600" />
-                    )}
-                  </div>
+    <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
+      {MEMBERS.map((member) => (
+        <div
+          key={member.id}
+          className='group rounded-3xl border border-slate-800 bg-slate-900/50 p-5 transition-all hover:border-sky-500/30 hover:bg-slate-900/80'
+        >
+          <div className='mb-4 flex items-start justify-between'>
+            <div className='flex items-center gap-4'>
+              <div className='relative'>
+                <div className='flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-slate-800 bg-linear-to-br from-sky-500/20 to-purple-500/20 transition-colors group-hover:border-sky-500/50'>
+                  <User className='h-7 w-7 text-sky-400' />
                 </div>
               </div>
 
-              <button className="p-2 text-slate-500 hover:text-white rounded-lg hover:bg-slate-800 transition-all">
-                <MoreVertical size={16} />
-              </button>
+              <div className='min-w-0'>
+                <h4 className='flex truncate font-bold text-wrap text-white'>
+                  {member.name}
+                </h4>
+                <p className='text-xs font-medium text-slate-500'>
+                  {member.role}
+                </p>
+
+                <div className='mt-1 flex items-center gap-2'>
+                  {member.email && (
+                    <Mail size={12} className='text-slate-600' />
+                  )}
+                  {member.github && (
+                    <Github size={12} className='text-slate-600' />
+                  )}
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-1.5">
-              {member.skills.map((skill, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-0.5 bg-slate-800/50 border border-slate-700/50 text-[10px] text-slate-400 rounded-md font-medium">
-                  {skill}
-                </span>
-              ))}
-            </div>
+            <button className='rounded-lg p-2 text-slate-500 transition-all hover:bg-slate-800 hover:text-white'>
+              <MoreVertical size={16} />
+            </button>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-};
 
-export default MemberTeam;
+          <div className='flex flex-wrap gap-1.5'>
+            {member.skills.map((skill, index) => (
+              <span
+                key={index}
+                className='rounded-md border border-slate-700/50 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-400'
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+);

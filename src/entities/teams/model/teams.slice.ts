@@ -10,23 +10,19 @@ export interface TeamItem {
   isOnline?: boolean;
 }
 
-
 export interface TeamState {
-    participants: TeamItem[];
-};
-
+  participants: TeamItem[];
+}
 
 const initialState: TeamState = {
-    participants: [],
+  participants: [],
 };
 
 const teamsSlice = createSlice({
   name: 'teams',
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
 });
 
-export const {  } = teamsSlice.actions;
+export const {} = teamsSlice.actions;
 export default teamsSlice.reducer;

@@ -1,21 +1,20 @@
 'use client';
 
 import React from 'react';
-import Sidebar from '@/ui/layout/nav/sideBar';
-import Header from '@/ui/components/header';
 
-const Settings: React.FC = () => {
-  return (
-    <div className="flex h-screen w-full bg-slate-950 text-slate-100 overflow-hidden">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden relative">
-        <Header />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-slate-950/50 hide-scrollbar">
-          Settings
-        </main>
-      </div>
+import { Header } from '@/ui/components/header';
+import { Sidebar } from '@/ui/layout/nav/sideBar';
+
+const Settings: React.FC = () => (
+  <div className='flex h-screen w-full overflow-hidden bg-slate-950 text-slate-100'>
+    <Sidebar />
+    <div className='relative flex flex-1 flex-col overflow-hidden'>
+      <Header />
+      <main className='hide-scrollbar flex-1 overflow-x-hidden overflow-y-auto bg-slate-950/50'>
+        Settings
+      </main>
     </div>
-  )
-};
+  </div>
+);
 
 export default Settings;

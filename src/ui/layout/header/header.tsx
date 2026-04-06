@@ -1,11 +1,13 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import { Logo } from "@/ui/components/logo";
-import { Menu, X } from "lucide-react";
-import MobileMenu from "@/features/mobile-menu/mobileMenu";
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
 
-const Header: React.FC = () => {
+import { MobileMenu } from '@/features/mobile-menu/mobileMenu';
+
+import { Logo } from '@/ui/components/logo';
+
+export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const toggleMobileMenu = (): void => {
@@ -13,26 +15,26 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-950/95 backdrop-blur supports-backdrop-filter:bg-gray-950/60">
+    <header className='sticky top-0 z-50 bg-gray-950/95 backdrop-blur supports-backdrop-filter:bg-gray-950/60'>
       <nav
-        className="container mx-auto px-6 py-4 flex justify-between items-center"
-        aria-label="Основная навигация"
+        className='container mx-auto flex items-center justify-between px-6 py-4'
+        aria-label='Основная навигация'
       >
         <Logo />
 
         {/* Desktop menu */}
-        <div className="hidden md:flex gap-6 items-center">
+        <div className='hidden items-center gap-6 md:flex'>
           <Link
-            href="/login"
-            className="text-gray-300 hover:text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
-            aria-label="Перейти на страницу авторизации"
+            href='/login'
+            className='inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-gray-300 transition-all duration-300 hover:text-white'
+            aria-label='Перейти на страницу авторизации'
           >
             Войти
           </Link>
           <Link
-            href="/register"
-            className="bg-sky-700 hover:bg-sky-600 shadow-2xl shadow-sky-700/50 text-white px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center"
-            aria-label="Перейти на страницу регистрации"
+            href='/register'
+            className='inline-flex items-center justify-center rounded-xl bg-sky-700 px-4 py-2 text-sm font-semibold text-white shadow-2xl shadow-sky-700/50 transition-all duration-300 hover:bg-sky-600'
+            aria-label='Перейти на страницу регистрации'
           >
             Регистрация
           </Link>
@@ -40,10 +42,10 @@ const Header: React.FC = () => {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 text-gray-300 hover:text-white"
+          className='p-2 text-gray-300 hover:text-white md:hidden'
           onClick={toggleMobileMenu}
-          aria-label="Открыть меню"
-          aria-controls="mobile-menu"
+          aria-label='Открыть меню'
+          aria-controls='mobile-menu'
           aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -53,12 +55,8 @@ const Header: React.FC = () => {
       {/* Mobile menu */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
-        onClose={() => {
-          return setIsMobileMenuOpen(false);
-        }}
+        onClose={() => setIsMobileMenuOpen(false)}
       />
     </header>
   );
 };
-
-export default Header;

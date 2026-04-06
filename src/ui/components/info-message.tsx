@@ -1,17 +1,13 @@
-import React from "react";
-import { Info } from "lucide-react";
+import React from 'react';
+import { Info } from 'lucide-react';
 
 interface InfoMessageProps {
   infoText: string;
 }
 
-const InfoMessage: React.FC<InfoMessageProps> = ({ infoText }) => {
-  return (
-    <div className="bg-sky-500/10 border border-sky-500/20 rounded-xl p-3 sm:p-4 flex gap-2 sm:gap-3">
-      <Info className="text-sky-400 shrink-0 w-4 h-4 sm:w-5 sm:h-5" size={20} />
-      <p className="text-xs text-sky-200 leading-relaxed">{infoText}</p>
-    </div>
-  );
-};
-
-export default InfoMessage;
+export const InfoMessage: React.FC<InfoMessageProps> = ({ infoText }) => (
+  <div className='flex gap-2 rounded-xl border border-sky-500/20 bg-sky-500/10 p-3 sm:gap-3 sm:p-4'>
+    <Info className='h-4 w-4 shrink-0 text-sky-400 sm:h-5 sm:w-5' size={20} />
+    <p className='text-xs leading-relaxed text-sky-200'>{infoText}</p>
+  </div>
+);

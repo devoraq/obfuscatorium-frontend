@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ENavigationKey } from "@/ui/layout/nav/types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { ENavigationKey } from '@/ui/layout/nav/types';
 
 export interface NavState {
   isSidebarOpen: boolean;
@@ -14,7 +15,7 @@ const initialState: NavState = {
 };
 
 const navSlice = createSlice({
-  name: "nav",
+  name: 'nav',
   initialState,
   reducers: {
     toggleSidebar(state) {
@@ -47,5 +48,12 @@ const navSlice = createSlice({
   },
 });
 
-export const { toggleSidebar, setSidebarOpen, setActiveKey, toggleGroup, setOpenGroups, resetNavigation } = navSlice.actions;
+export const {
+  toggleSidebar,
+  setSidebarOpen,
+  setActiveKey,
+  toggleGroup,
+  setOpenGroups,
+  resetNavigation,
+} = navSlice.actions;
 export default navSlice.reducer;

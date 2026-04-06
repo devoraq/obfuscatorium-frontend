@@ -1,11 +1,12 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import { Logo } from "@/ui/components/logo";
-import Input from "@/ui/layout/auth/input";
-import Divider from "@/ui/layout/auth/divider";
-import SocialAuth from "@/ui/layout/auth/socialAuth";
-import BackToHome from "@/ui/layout/auth/backToHome";
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
+
+import { Logo } from '@/ui/components/logo';
+import { BackToHome } from '@/ui/layout/auth/backToHome';
+import { Divider } from '@/ui/layout/auth/divider';
+import { Input } from '@/ui/layout/auth/input';
+import { SocialAuth } from '@/ui/layout/auth/socialAuth';
 
 /**
  * @file input.tsx
@@ -14,18 +15,18 @@ import BackToHome from "@/ui/layout/auth/backToHome";
  */
 
 const RegisterPage: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const newErrors: Record<string, string> = {};
-    if (!email) newErrors.email = "Email обязателен";
-    if (!password) newErrors.password = "Пароль обязателен";
-    if (!name) newErrors.name = "Имя пользователя обязательно";
+    if (!email) newErrors.email = 'Email обязателен';
+    if (!password) newErrors.password = 'Пароль обязателен';
+    if (!name) newErrors.name = 'Имя пользователя обязательно';
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -34,87 +35,86 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-12">
-      <div className="w-full max-w-md">
-        <div className="flex items-center justify-center mb-8">
+    <div className='flex min-h-screen items-center justify-center px-6 py-12'>
+      <div className='w-full max-w-md'>
+        <div className='mb-8 flex items-center justify-center'>
           <Logo />
         </div>
 
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-sky-600/30 shadow-2xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
-
+        <div className='rounded-2xl border border-sky-600/30 bg-gray-800/50 p-8 shadow-2xl backdrop-blur-sm'>
+          <form onSubmit={handleSubmit} className='space-y-6'>
             <Input
-              label="Имя пользователя"
-              type="text"
-              placeholder="Введите имя пользователя"
+              label='Имя пользователя'
+              type='text'
+              placeholder='Введите имя пользователя'
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
-                if (errors.name) setErrors({ ...errors, name: "" });
+                if (errors.name) setErrors({ ...errors, name: '' });
               }}
               error={errors.name}
             />
             <Input
-              label="Email"
-              type="email"
-              placeholder="your@email.com"
+              label='Email'
+              type='email'
+              placeholder='your@email.com'
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
-                if (errors.email) setErrors({ ...errors, email: "" });
+                if (errors.email) setErrors({ ...errors, email: '' });
               }}
               error={errors.email}
             />
 
             <Input
-              label="Пароль"
-              type="password"
-              placeholder="••••••••"
+              label='Пароль'
+              type='password'
+              placeholder='••••••••'
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
-                if (errors.password) setErrors({ ...errors, password: "" });
+                if (errors.password) setErrors({ ...errors, password: '' });
               }}
               error={errors.password}
             />
             <Input
-              label="Подтвердите пароль"
-              type="password"
-              placeholder="••••••••"
+              label='Подтвердите пароль'
+              type='password'
+              placeholder='••••••••'
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
-                if (errors.password) setErrors({ ...errors, password: "" });
+                if (errors.password) setErrors({ ...errors, password: '' });
               }}
               error={errors.password}
             />
-            <div className="flex items-center justify-between">
-              <label className="flex items-center text-gray-300">
+            <div className='flex items-center justify-between'>
+              <label className='flex items-center text-gray-300'>
                 <input
-                  type="checkbox"
-                  name="remember"
-                  value="true"
-                  className="mr-2 w-4 h-4 rounded border-sky-600/30 bg-gray-800/50 text-sky-700 focus:ring-sky-600"
+                  type='checkbox'
+                  name='remember'
+                  value='true'
+                  className='mr-2 h-4 w-4 rounded border-sky-600/30 bg-gray-800/50 text-sky-700 focus:ring-sky-600'
                 />
-                <span className="text-sm">Запомнить меня</span>
+                <span className='text-sm'>Запомнить меня</span>
               </label>
             </div>
 
             <button
-              type="submit"
-              className="w-full py-3 bg-sky-600 text-white rounded-xl hover:bg-sky-700 transition-colors"
+              type='submit'
+              className='w-full rounded-xl bg-sky-600 py-3 text-white transition-colors hover:bg-sky-700'
             >
               Войти
             </button>
           </form>
           <Divider />
           <SocialAuth />
-          <div className="mt-6 text-center text-sm text-gray-400">
+          <div className='mt-6 text-center text-sm text-gray-400'>
             <span>
-              Уже есть аккаунт?{" "}
+              Уже есть аккаунт?{' '}
               <Link
-                href="/login"
-                className="text-sky-500 hover:text-sky-400 font-semibold transition-colors"
+                href='/login'
+                className='font-semibold text-sky-500 transition-colors hover:text-sky-400'
               >
                 Войдите
               </Link>
