@@ -1,12 +1,12 @@
-"use client";
-import { useId, InputHTMLAttributes, useState } from "react";
+'use client';
+import { InputHTMLAttributes, useId, useState } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
 }
 
- const Input: React.FC <InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   label,
   error,
   disabled,
@@ -14,11 +14,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   ...props
 }) => {
   const id = useId();
-  const errorId = `${id}-error`; 
+  const errorId = `${id}-error`;
 
   const hasError = Boolean(error);
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(e.target.value);
@@ -28,20 +28,17 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   };
 
   return (
-    <div className="w-full flex flex-col gap-1.5">
+    <div className='flex w-full flex-col gap-1.5'>
       {label && (
         <label
           htmlFor={id}
-          className={`
-            text-sm font-semibold transition-colors duration-200
-            ${disabled ? "text-slate-500" : "text-slate-300"}
-            ${hasError && !disabled ? "text-rose-400" : ""}`}
+          className={`text-sm font-semibold transition-colors duration-200 ${disabled ? 'text-slate-500' : 'text-slate-300'} ${hasError && !disabled ? 'text-rose-400' : ''}`}
         >
           {label}
         </label>
       )}
 
-      <div className="relative">
+      <div className='relative'>
         <input
           {...props}
           id={id}
@@ -50,24 +47,16 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
           onChange={handleChange}
           aria-invalid={hasError}
           aria-describedby={hasError ? errorId : undefined}
-          className={`
-            w-full bg-slate-800/40 border rounded-xl py-3 px-4
-            text-slate-100 placeholder:text-slate-500 
-            transition-all outline-none
-            border-slate-700/60 hover:border-slate-600 
-            focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10
-            ${hasError ? "border-rose-500/50 hover:border-rose-500 focus:border-rose-500 focus:ring-rose-500/10" : ""}
-            ${disabled ? "opacity-50 cursor-not-allowed bg-slate-900/50 border-slate-800" : ""}
-          `}
+          className={`w-full rounded-xl border border-slate-700/60 bg-slate-800/40 px-4 py-3 text-slate-100 transition-all outline-none placeholder:text-slate-500 hover:border-slate-600 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 ${hasError ? 'border-rose-500/50 hover:border-rose-500 focus:border-rose-500 focus:ring-rose-500/10' : ''} ${disabled ? 'cursor-not-allowed border-slate-800 bg-slate-900/50 opacity-50' : ''} `}
         />
       </div>
 
       {error && (
         <p
           id={errorId}
-          className="text-xs font-medium text-rose-500 mt-0.5"
-          role="alert"
-          aria-live="polite"
+          className='mt-0.5 text-xs font-medium text-rose-500'
+          role='alert'
+          aria-live='polite'
         >
           {error}
         </p>
@@ -75,5 +64,3 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     </div>
   );
 };
-
-export default Input

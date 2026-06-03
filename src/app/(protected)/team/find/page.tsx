@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
 import React from 'react';
-import Sidebar from '@/ui/layout/nav/sideBar';
-import Header from '@/ui/components/header';
-import { UserPlus,  Star, User } from "lucide-react";
-import SearchInput from '@/ui/components/searchInput'
-import Button from  '@/ui/components/button'
+import { Star, User, UserPlus } from 'lucide-react';
+
+import { Button } from '@/ui/components/button';
+import { Header } from '@/ui/components/header';
+import { SearchInput } from '@/ui/components/searchInput';
+import { Sidebar } from '@/ui/layout/nav/sideBar';
 // в будущем можно добавить avatar
 interface Candidate {
   id: string;
@@ -16,108 +17,101 @@ interface Candidate {
 
 const candidates: Candidate[] = [
   {
-    id: "1",
-    name: "Артем Волков",
-    role: "Data Scientist",
-    skills: ["Python", "SQL"],
+    id: '1',
+    name: 'Артем Волков',
+    role: 'Data Scientist',
+    skills: ['Python', 'SQL'],
   },
   {
-    id: "2",
-    name: "Дарья Соколова",
-    role: "Frontend Developer",
-    skills: ["React", "TS", "Tailwind"],
+    id: '2',
+    name: 'Дарья Соколова',
+    role: 'Frontend Developer',
+    skills: ['React', 'TS', 'Tailwind'],
   },
   {
-    id: "3",
-    name: "Анна Ли",
-    role: "Mobile Developer",
-    skills: ["Flutter", "Dart", "Firebase"],
+    id: '3',
+    name: 'Анна Ли',
+    role: 'Mobile Developer',
+    skills: ['Flutter', 'Dart', 'Firebase'],
   },
   {
-    id: "4",
-    name: "Олег Мухин",
-    role: "Backend Engineer",
-    skills: ["Node.js", "Redis", "Docker"],
+    id: '4',
+    name: 'Олег Мухин',
+    role: 'Backend Engineer',
+    skills: ['Node.js', 'Redis', 'Docker'],
   },
   {
-    id: "5",
-    name: "Юлия Кравц",
-    role: "Product Designer",
-    skills: ["Figma", "Prototyping"],
+    id: '5',
+    name: 'Юлия Кравц',
+    role: 'Product Designer',
+    skills: ['Figma', 'Prototyping'],
   },
   {
-    id: "6",
-    name: "Михаил Иванов",
-    role: "QA Automation",
-    skills: ["Selenium", "Java", "JUnit"],
+    id: '6',
+    name: 'Михаил Иванов',
+    role: 'QA Automation',
+    skills: ['Selenium', 'Java', 'JUnit'],
   },
 ];
 
-const TeamFind: React.FC = () => {
-  return (
-    <div className="flex h-screen w-full bg-slate-950 text-slate-100 overflow-hidden">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden relative">
-        <Header />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-slate-950/50 hide-scrollbar">
-          <div className="p-8 space-y-8 animate-fadeIn ">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <h1 className="text-3xl font-bold text-white mb-2">
-                  Найти участников
-                </h1>
-                <p className="text-slate-400">
-                  Найдите идеальных партнеров для вашего следующего хакатона!
-                </p>
-              </div>
-
-          <SearchInput
-          placeholder='Поиск...'
-          className='w-full md:w-80'
-          />
+const TeamFind: React.FC = () => (
+  <div className='flex h-screen w-full overflow-hidden bg-slate-950 text-slate-100'>
+    <Sidebar />
+    <div className='relative flex flex-1 flex-col overflow-hidden'>
+      <Header />
+      <main className='hide-scrollbar flex-1 overflow-x-hidden overflow-y-auto bg-slate-950/50'>
+        <div className='animate-fadeIn space-y-8 p-8'>
+          <div className='flex flex-col justify-between gap-6 md:flex-row md:items-end'>
+            <div>
+              <h1 className='mb-2 text-3xl font-bold text-white'>
+                Найти участников
+              </h1>
+              <p className='text-slate-400'>
+                Найдите идеальных партнеров для вашего следующего хакатона!
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {candidates.map((candidate) => (
-                <div
-                  key={candidate.id}
-                  className="bg-slate-900/50 border border-slate-800 p-6 rounded-3xl hover:border-sky-500/30 transition-all"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center">
-                      <User className="w-8 h-8 text-slate-400" />
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-bold text-white">{candidate.name}</h3>
-                  <p className="text-sm text-sky-400 mb-4">{candidate.role}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {candidate.skills.map((skill, item) => (
-                      <span
-                        key={item}
-                        className="px-2 py-1 bg-slate-800 text-slate-400 text-[10px] font-semibold rounded-md"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <Button 
-                      icon = {UserPlus}
-                      text = 'Пригласить'
-                    />
-                    <button className="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-400 rounded-xl">  
-                      <Star size={16} />
-                    </button>
+            <SearchInput placeholder='Поиск...' className='w-full md:w-80' />
+          </div>
+
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+            {candidates.map((candidate) => (
+              <div
+                key={candidate.id}
+                className='rounded-3xl border border-slate-800 bg-slate-900/50 p-6 transition-all hover:border-sky-500/30'
+              >
+                <div className='mb-4 flex items-start justify-between'>
+                  <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800'>
+                    <User className='h-8 w-8 text-slate-400' />
                   </div>
                 </div>
-              ))}
-            </div>
+                <h3 className='text-lg font-bold text-white'>
+                  {candidate.name}
+                </h3>
+                <p className='mb-4 text-sm text-sky-400'>{candidate.role}</p>
+                <div className='mb-6 flex flex-wrap gap-2'>
+                  {candidate.skills.map((skill, item) => (
+                    <span
+                      key={item}
+                      className='rounded-md bg-slate-800 px-2 py-1 text-[10px] font-semibold text-slate-400'
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <div className='flex gap-2'>
+                  <Button icon={UserPlus} text='Пригласить' />
+                  <button className='rounded-xl bg-slate-800 p-2.5 text-slate-400 hover:bg-slate-700'>
+                    <Star size={16} />
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
-
-  );
-};
+  </div>
+);
 
 export default TeamFind;

@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
-import { redirect } from "next/navigation";
-import { getCurrentUser } from "@/entities/api/session";
+import { ReactNode } from 'react';
+import { redirect } from 'next/navigation';
+
+import { getCurrentUser } from '@/entities/api/session';
 
 export default async function ProtectedLayout({
   children,
@@ -10,7 +11,7 @@ export default async function ProtectedLayout({
   const user = await getCurrentUser();
 
   if (user) {
-    redirect("/login");
+    redirect('/login');
   }
 
   return <>{children}</>;

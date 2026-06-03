@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type CategoryButtonProps = {
   name: string;
@@ -6,20 +6,19 @@ type CategoryButtonProps = {
   isActive: boolean;
 };
 
-const CategoryButton: React.FC<CategoryButtonProps> = ({
+export const CategoryButton: React.FC<CategoryButtonProps> = ({
   name,
   icon,
   isActive,
 }) => (
   <button
-    className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap border flex items-center gap-2 ${
+    className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium whitespace-nowrap ${
       isActive
-        ? "bg-sky-500 border-sky-500 text-white"
-        : "bg-slate-900 border-slate-800 text-slate-400"
+        ? 'border-sky-500 bg-sky-500 text-white'
+        : 'border-slate-800 bg-slate-900 text-slate-400'
     }`}
   >
     {icon}
     {name}
   </button>
 );
-export default CategoryButton;

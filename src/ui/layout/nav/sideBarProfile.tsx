@@ -1,30 +1,51 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
-  ChevronDown,
-  LogOut,
-  User,
   Bell,
+  ChevronDown,
   CreditCard,
+  LogOut,
   Settings,
-} from "lucide-react";
+  User,
+} from 'lucide-react';
 
-import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/store/hooks";
-import { setActiveKey } from "@/features/navigate-menu/model/navigateSlice";
-import { ENavigationKey } from "@/ui/layout/nav/types";
+import { setActiveKey } from '@/features/navigate-menu/model/navigate.slice';
+
+import { useAppDispatch } from '@/store/hooks';
+
+import { ENavigationKey } from '@/ui/layout/nav/types';
 
 interface Props {
   isOpen: boolean;
-};
-
+}
 
 const PROFILE_ITEMS = [
-  { key: ENavigationKey.Profile, label: "Мой профиль", icon: User, path: "/profile" },
-  { key: ENavigationKey.Notifications, label: "Уведомления", icon: Bell, path: "/notifications" },
-  { key: ENavigationKey.Subscription, label: "Подписка", icon: CreditCard, path: "/subscription" },
-  { key: ENavigationKey.Settings, label: "Настройки", icon: Settings, path: "/settings" },
+  {
+    key: ENavigationKey.Profile,
+    label: 'Мой профиль',
+    icon: User,
+    path: '/profile',
+  },
+  {
+    key: ENavigationKey.Notifications,
+    label: 'Уведомления',
+    icon: Bell,
+    path: '/notifications',
+  },
+  {
+    key: ENavigationKey.Subscription,
+    label: 'Подписка',
+    icon: CreditCard,
+    path: '/subscription',
+  },
+  {
+    key: ENavigationKey.Settings,
+    label: 'Настройки',
+    icon: Settings,
+    path: '/settings',
+  },
 ];
 
 export const SidebarProfile = ({ isOpen }: Props) => {
@@ -39,23 +60,23 @@ export const SidebarProfile = ({ isOpen }: Props) => {
     setIsMenuOpen(false);
   };
 
-  const justifyClass = isOpen ? "" : "justify-center";
+  const justifyClass = isOpen ? '' : 'justify-center';
 
   return (
-    <div className="relative p-2">
+    <div className='relative p-2'>
       <button
         onClick={() => isOpen && setIsMenuOpen(!isMenuOpen)}
-        className={`w-full flex items-center gap-3 p-2 rounded-xl bg-slate-800 border border-slate-700 ${justifyClass}`}
+        className={`flex w-full items-center gap-3 rounded-xl border border-slate-700 bg-slate-800 p-2 ${justifyClass}`}
       >
-        <div className="w-10 h-10 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold">
+        <div className='flex h-10 w-10 items-center justify-center rounded-lg bg-sky-500 font-bold text-white'>
           И
         </div>
 
         {isOpen && (
           <>
-            <div className="flex-1 text-left">
-              <p className="text-sm font-semibold text-slate-200">Иван</p>
-              <p className="text-xs text-slate-500">Разработчик</p>
+            <div className='flex-1 text-left'>
+              <p className='text-sm font-semibold text-slate-200'>Иван</p>
+              <p className='text-xs text-slate-500'>Разработчик</p>
             </div>
             <ChevronDown size={16} />
           </>
@@ -63,7 +84,7 @@ export const SidebarProfile = ({ isOpen }: Props) => {
       </button>
 
       {isOpen && isMenuOpen && (
-        <div className="absolute bottom-full mb-3 left-2 right-2 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-2">
+        <div className='absolute right-2 bottom-full left-2 mb-3 rounded-xl border border-slate-800 bg-slate-900 p-2 shadow-2xl'>
           {PROFILE_ITEMS.map((item) => {
             const Icon = item.icon;
 
@@ -71,7 +92,7 @@ export const SidebarProfile = ({ isOpen }: Props) => {
               <button
                 key={item.key}
                 onClick={() => handleSelect(item)}
-                className="w-full flex items-center gap-3 p-2 text-sm text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg"
+                className='flex w-full items-center gap-3 rounded-lg p-2 text-sm text-slate-400 hover:bg-slate-800 hover:text-white'
               >
                 <Icon size={18} />
                 {item.label}
@@ -79,11 +100,11 @@ export const SidebarProfile = ({ isOpen }: Props) => {
             );
           })}
 
-          <div className="h-px bg-slate-800 my-2" />
+          <div className='my-2 h-px bg-slate-800' />
 
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="w-full flex items-center gap-3 p-2 text-sm text-red-400 hover:bg-red-500/20 rounded-lg"
+            className='flex w-full items-center gap-3 rounded-lg p-2 text-sm text-red-400 hover:bg-red-500/20'
           >
             <LogOut size={18} />
             Выйти

@@ -1,10 +1,11 @@
-import { combineReducers } from "@reduxjs/toolkit";
+import { combineReducers } from '@reduxjs/toolkit';
 
-import authSlice from "@/features/auth/model/authSlice";
-import navSlice from "@/features/navigate-menu/model/navigateSlice";
-import contestSlice from "@/entities/contests/model/contestSlice";
-import teamsSlice from "@/entities/teams/model/teamsSlice";
-import statsSlice from "@/entities/stats/model/statsSlice";
+import contestSlice from '@/entities/contests/model/contest.slice';
+import statsSlice from '@/entities/stats/model/stats.slice';
+import teamsSlice from '@/entities/teams/model/teams.slice';
+
+import authSlice from '@/features/auth/model/auth.slice';
+import navSlice from '@/features/navigate-menu/model/navigate.slice';
 
 export const rootReducer = combineReducers({
   auth: authSlice,

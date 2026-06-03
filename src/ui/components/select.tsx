@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
@@ -6,29 +6,27 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
 }
 
-const Select: React.FC<SelectProps> = ({label, options, className, ...props}) => {
-  return (
-    <div className="space-y-2">
-      <label className="block text-sm font-medium text-slate-400">
-        {label}
-      </label>
-      <select
-        className={`w-full px-4 py-3 bg-slate-800 border border-slate-700 
-                   rounded-xl focus:ring-2 focus:ring-sky-600/30 outline-none 
-                   transition-all text-white ${className}`}
-        {...props}
-      >
-        {options.map((option) => (
-          <option
-            key={option.value}
-            value={option.value}
-            className="bg-slate-800"
-          >
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-};
-export default Select;
+export const Select: React.FC<SelectProps> = ({
+  label,
+  options,
+  className,
+  ...props
+}) => (
+  <div className='space-y-2'>
+    <label className='block text-sm font-medium text-slate-400'>{label}</label>
+    <select
+      className={`w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-white transition-all outline-none focus:ring-2 focus:ring-sky-600/30 ${className}`}
+      {...props}
+    >
+      {options.map((option) => (
+        <option
+          key={option.value}
+          value={option.value}
+          className='bg-slate-800'
+        >
+          {option.label}
+        </option>
+      ))}
+    </select>
+  </div>
+);

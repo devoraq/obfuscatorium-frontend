@@ -1,18 +1,18 @@
-import { cookies } from 'next/headers'
+import { cookies } from 'next/headers';
 
 interface User {
-  id: string
-  username: string
-  email: string
-  avatar: string
-  bio: string
-  role: string
-  createdAt: string
+  id: string;
+  username: string;
+  email: string;
+  avatar: string;
+  bio: string;
+  role: string;
+  createdAt: string;
 }
 
 export async function getCurrentUser(): Promise<User | null> {
   const cookieStore = cookies();
-  const tokenCookie = (await cookieStore).get('access_token') ;
+  const tokenCookie = (await cookieStore).get('access_token');
 
   if (!tokenCookie) return null;
   const token = tokenCookie.value;
@@ -23,7 +23,7 @@ export async function getCurrentUser(): Promise<User | null> {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    })
+    });
 
     if (!res.ok) return null;
 

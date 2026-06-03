@@ -1,23 +1,23 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface User {
-  id: string
-  username: string
-  email: string
-  avatar: string
-  bio: string
-  role: string
-  createdAt: string
+  id: string;
+  username: string;
+  email: string;
+  avatar: string;
+  bio: string;
+  role: string;
+  createdAt: string;
 }
 
 export interface AuthState {
-  accessToken: string
-  tokenType: string
-  expiresIn: number
-  user: User | null
-  isAuth: boolean
-  isError: boolean
-  errorMessage: string
+  accessToken: string;
+  tokenType: string;
+  expiresIn: number;
+  user: User | null;
+  isAuth: boolean;
+  isError: boolean;
+  errorMessage: string;
 }
 
 const initialState: AuthState = {
@@ -28,13 +28,21 @@ const initialState: AuthState = {
   isAuth: false,
   isError: false,
   errorMessage: '',
-}
+};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    loginSuccess(state, action: PayloadAction<{accessToken: string, tokenType: string, expiresIn: number, user: User}>) {
+    loginSuccess(
+      state,
+      action: PayloadAction<{
+        accessToken: string;
+        tokenType: string;
+        expiresIn: number;
+        user: User;
+      }>,
+    ) {
       state.isAuth = true;
       state.isError = false;
       state.errorMessage = '';
@@ -68,14 +76,15 @@ const authSlice = createSlice({
 
     updateUser(state, action: PayloadAction<Partial<User>>) {
       if (state.user) {
-        state.user = { ...state.user, ...action.payload }
+        state.user = { ...state.user, ...action.payload };
       }
     },
   },
-})
+});
 
 // --- Экспорт действий ---
-export const { loginSuccess, loginFailure, logout, updateUser } = authSlice.actions;
+export const { loginSuccess, loginFailure, logout, updateUser } =
+  authSlice.actions;
 
 // --- Экспорт редьюсера ---
 export default authSlice.reducer;

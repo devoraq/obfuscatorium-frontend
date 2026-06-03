@@ -1,59 +1,56 @@
+import React from 'react';
+import {
+  Calendar,
+  // Cpu,
+  // Gamepad2,
+  // Globe,
+  // Landmark,
+  // Shield,
+  // Sparkles,
+  // Tag,
+  Trophy,
+  Users,
+} from 'lucide-react';
 
-import React from "react";
-import { Contest } from "@/entities/contests/model/contestSlice";
-import { Calendar, Globe, Cpu, Landmark, Shield, Gamepad2, Sparkles, Users, Trophy, Tag } from "lucide-react";
+import { Contest } from '@/entities/contests/model/contest.slice';
 
+// interface CategoryIcons {
+//   [key: string]: React.ReactNode;
+// }
 
-
-interface CategoryIcons {
-  [key: string]: React.ReactNode;
-}
-
-const CATEGORY_ICONS: CategoryIcons = {
-  Web3: <Sparkles className="w-5 h-5 text-white" />,
-  AI: <Cpu className="w-5 h-5 text-white" />,
-  Fintech: <Landmark className="w-5 h-5 text-white" />,
-  Security: <Shield className="w-5 h-5 text-white" />,
-  GameDev: <Gamepad2 className="w-5 h-5 text-white" />,
-  Other: <Globe className="w-5 h-5 text-white" />,
-};
+// const CATEGORY_ICONS: CategoryIcons = {
+//   Web3: <Sparkles className='h-5 w-5 text-white' />,
+//   AI: <Cpu className='h-5 w-5 text-white' />,
+//   Fintech: <Landmark className='h-5 w-5 text-white' />,
+//   Security: <Shield className='h-5 w-5 text-white' />,
+//   GameDev: <Gamepad2 className='h-5 w-5 text-white' />,
+//   Other: <Globe className='h-5 w-5 text-white' />,
+// };
 interface Props {
   contest: Contest;
 }
 
-const HackathonCard: React.FC<Props> = ({ contest }) => {
-  const statusLabel =
-    contest.status === "ongoing"
-      ? "Открыт"
-      : contest.status === "upcoming"
-      ? "Скоро"
-      : "Завершен";
+export const HackathonCard: React.FC<Props> = ({ contest }) => {
+  // const statusLabel =
+  //   contest.status === 'ongoing'
+  //     ? 'Открыт'
+  //     : contest.status === 'upcoming'
+  //       ? 'Скоро'
+  //       : 'Завершен';
 
   const statusDotColor =
-    contest.status === "ongoing"
-      ? "bg-green-500"
-      : contest.status === "upcoming"
-      ? "bg-amber-500"
-      : "bg-gray-500";
+    contest.status === 'ongoing'
+      ? 'bg-green-500'
+      : contest.status === 'upcoming'
+        ? 'bg-amber-500'
+        : 'bg-gray-500';
 
   return (
-    <div
-      className="group bg-slate-900/50 backdrop-blur-sm border border-slate-800
-      rounded-2xl overflow-hidden hover:border-sky-500/50
-      transition-all duration-300 hover:-translate-y-1"
-    >
-      <div
-        className="h-24 bg-linear-to-br from-slate-800 to-slate-900
-        flex items-center justify-between p-4
-        group-hover:from-sky-900/30 group-hover:to-purple-900/30
-        transition-all duration-300"
-      >
-        <div className="flex items-center gap-3">
-          <div
-            className="flex items-center gap-1.5 px-2 py-1
-            bg-black/40 backdrop-blur-sm rounded-lg"
-          >
-            <div className={`w-2 h-2 rounded-full ${statusDotColor}`} />
+    <div className='group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/50'>
+      <div className='flex h-24 items-center justify-between bg-linear-to-br from-slate-800 to-slate-900 p-4 transition-all duration-300 group-hover:from-sky-900/30 group-hover:to-purple-900/30'>
+        <div className='flex items-center gap-3'>
+          <div className='flex items-center gap-1.5 rounded-lg bg-black/40 px-2 py-1 backdrop-blur-sm'>
+            <div className={`h-2 w-2 rounded-full ${statusDotColor}`} />
 
             {/* статус */}
             {/* <span className="text-xs font-medium text-white">
@@ -62,11 +59,8 @@ const HackathonCard: React.FC<Props> = ({ contest }) => {
           </div>
 
           {contest.participantsCount && (
-            <div
-              className="flex items-center gap-1.5 px-2 py-1
-              bg-black/40 backdrop-blur-sm rounded-lg"
-            >
-              <Users size={12} className="text-slate-400" />
+            <div className='flex items-center gap-1.5 rounded-lg bg-black/40 px-2 py-1 backdrop-blur-sm'>
+              <Users size={12} className='text-slate-400' />
 
               {/* участники */}
               {/* <span className="text-xs text-slate-300">
@@ -77,29 +71,21 @@ const HackathonCard: React.FC<Props> = ({ contest }) => {
         </div>
       </div>
 
-      <div className="p-6">
-        <h3
-          className="text-xl font-bold text-white mb-3
-          group-hover:text-sky-400 transition-colors duration-300
-          line-clamp-2"
-        >
+      <div className='p-6'>
+        <h3 className='mb-3 line-clamp-2 text-xl font-bold text-white transition-colors duration-300 group-hover:text-sky-400'>
           {contest.title}
         </h3>
 
-        <div
-          className="flex items-center justify-between mb-6
-          text-sm bg-slate-800/30 rounded-xl p-3
-          border border-slate-700/50"
-        >
-          <div className="flex items-center gap-2 text-slate-400">
-            <Calendar size={14} className="text-sky-400" />
+        <div className='mb-6 flex items-center justify-between rounded-xl border border-slate-700/50 bg-slate-800/30 p-3 text-sm'>
+          <div className='flex items-center gap-2 text-slate-400'>
+            <Calendar size={14} className='text-sky-400' />
 
             {/* дата */}
             {/* <span>{contest.month} {contest.day}</span> */}
           </div>
 
           {contest.prize && (
-            <div className="flex items-center gap-2 text-amber-400 font-semibold">
+            <div className='flex items-center gap-2 font-semibold text-amber-400'>
               <Trophy size={14} />
 
               {/* приз */}
@@ -108,17 +94,10 @@ const HackathonCard: React.FC<Props> = ({ contest }) => {
           )}
         </div>
 
-        <button
-          className="w-full py-3 bg-slate-800 hover:bg-sky-600
-          text-white text-sm font-semibold rounded-xl
-          transition-all duration-300
-          hover:shadow-lg hover:shadow-sky-600/20
-          flex items-center justify-center gap-2
-          border border-slate-700 hover:border-sky-400"
-        >
+        <button className='flex w-full items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-sky-400 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-600/20'>
           {/* Подробнее */}
           {/* Подробнее */}
-          <span className="group-hover:translate-x-1 transition-transform duration-300">
+          <span className='transition-transform duration-300 group-hover:translate-x-1'>
             →
           </span>
         </button>
@@ -126,5 +105,3 @@ const HackathonCard: React.FC<Props> = ({ contest }) => {
     </div>
   );
 };
-
-export default HackathonCard;
